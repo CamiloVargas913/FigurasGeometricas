@@ -11,6 +11,7 @@ package edu.unicundi.figurasgeometricas;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("hola mundo");
+        VistaFiguras figuras = new VistaFiguras();
+        figuras.setVisible(true);
     }
 }
