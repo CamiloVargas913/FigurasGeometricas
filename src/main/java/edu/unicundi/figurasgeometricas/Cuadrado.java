@@ -9,12 +9,11 @@ package edu.unicundi.figurasgeometricas;
  *
  * @author PROFESIONAL
  */
-public class Main {
-    public static void main(String[] args) {
-//        VistaFiguras figuras = new VistaFiguras();
-//        figuras.setVisible(true);
+public class Cuadrado extends Cuadrilateros {
 
-        Cuadrado cua = new Cuadrado("0,0", "0,0", "0,0", "0,0");
-        System.out.println(cua.hallarArea(30));
+    public Cuadrado(String coorde1,String coorde2,String coorde3,String coorde4) {
+        super(coorde1, coorde2, coorde3, coorde4);
     }
+    
+   
 }

@@ -10,24 +10,84 @@ package edu.unicundi.figurasgeometricas;
  * @author PROFESIONAL
  */
 public class FiguraGeometrica {
+    
     private int lado1;
     private int  area;
     private int perimetro;
     private String color;
-    private int coorde1;
-    private int coorde2;
-    private int coorde3;
+    private String coorde1;
+    private String coorde2;
+    private String coorde3;
+
+    public FiguraGeometrica(String coorde1,String coorde2,String coorde3) {
+        this.coorde1 = coorde1;
+        this.coorde2 = coorde2;
+        this.coorde3 = coorde3;
+    }
     
-    
-    public void hallarArea(int lado1){
-        this.area = lado1*4;
+    public int hallarArea(int lado1){
+        this.area = lado1*lado1; 
         
+        return this.area;
     }
     public void hallarPerimetro(int lado1){
         this.perimetro = lado1*4;
     }
-    public void pintar(){
-        
+
+    public int getLado1() {
+        return lado1;
+    }
+
+    public void setLado1(int lado1) {
+        this.lado1 = lado1;
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
+    }
+
+    public int getPerimetro() {
+        return perimetro;
+    }
+
+    public void setPerimetro(int perimetro) {
+        this.perimetro = perimetro;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getCoorde1() {
+        return coorde1;
+    }
+
+    public void setCoorde1(String coorde1) {
+        this.coorde1 = coorde1;
+    }
+
+    public String getCoorde2() {
+        return coorde2;
+    }
+
+    public void setCoorde2(String coorde2) {
+        this.coorde2 = coorde2;
+    }
+
+    public String getCoorde3() {
+        return coorde3;
+    }
+
+    public void setCoorde3(String coorde3) {
+        this.coorde3 = coorde3;
     }
     
 }
