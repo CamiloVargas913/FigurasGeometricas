@@ -14,7 +14,8 @@ public class Main {
 //        VistaFiguras figuras = new VistaFiguras();
 //        figuras.setVisible(true);
 
-        Cuadrado cua = new Cuadrado("0,0", "0,0", "0,0", "0,0");
-        System.out.println(cua.hallarArea(30));
+        Cuadrado cua = new Cuadrado();
+        cua.validarCoordenadas("0,0", "0,0", "", "0,0");
+        System.out.println(cua.getMensaje());
     }
 }
