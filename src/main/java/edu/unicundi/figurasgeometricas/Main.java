@@ -15,7 +15,7 @@ public class Main {
 //        figuras.setVisible(true);
 
         Cuadrado cua = new Cuadrado();
-        cua.validarCoordenadas("0,0", "0,0", "", "0,0");
-        System.out.println(cua.getMensaje());
+        cua.validarCoordenadas("0,0", "0,0", "0,0", "0,0");
+       // System.out.println(cua.getMensaje());
     }
 }
