@@ -11,9 +11,10 @@ package edu.unicundi.figurasgeometricas;
  */
 public class Cuadrado extends Cuadrilateros {
 
-    public Cuadrado(String coorde1,String coorde2,String coorde3,String coorde4) {
-        super(coorde1, coorde2, coorde3, coorde4);
+    public Cuadrado() {
+        
     }
+    
     
    
 }

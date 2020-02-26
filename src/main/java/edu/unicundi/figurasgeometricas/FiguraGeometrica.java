@@ -10,28 +10,46 @@ package edu.unicundi.figurasgeometricas;
  * @author PROFESIONAL
  */
 public class FiguraGeometrica {
-    
+
     private int lado1;
-    private int  area;
+    private int area;
     private int perimetro;
     private String color;
     private String coorde1;
     private String coorde2;
     private String coorde3;
+    private String mensaje;
 
-    public FiguraGeometrica(String coorde1,String coorde2,String coorde3) {
-        this.coorde1 = coorde1;
-        this.coorde2 = coorde2;
-        this.coorde3 = coorde3;
-    }
-    
-    public int hallarArea(int lado1){
-        this.area = lado1*lado1; 
+    public FiguraGeometrica() {
         
+    }
+
+    public int hallarArea(int lado1) {
+        this.area = lado1 * lado1;
+
         return this.area;
     }
-    public void hallarPerimetro(int lado1){
-        this.perimetro = lado1*4;
+
+    public void hallarPerimetro(int lado1) {
+        this.perimetro = lado1 * 4;
+    }
+
+    public void validarCoordenadas(String coorde1, String coorde2, String coorde3) {
+        if (coorde1.equals("") || coorde2.equals("") || coorde3.equals("")) {
+            this.mensaje = "Las Coordenadas no pueden ser vacias";
+        }else{
+            this.coorde1 = coorde1;
+            this.coorde2 = coorde2;
+            this.coorde3 = coorde3;
+        }
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
     public int getLado1() {
@@ -89,5 +107,5 @@ public class FiguraGeometrica {
     public void setCoorde3(String coorde3) {
         this.coorde3 = coorde3;
     }
-    
+
 }
