@@ -19,6 +19,7 @@ public class FiguraGeometrica {
     private String coorde2;
     private String coorde3;
     private String mensaje;
+    private int coordenadas[][]= new int[4][4];
 
     public FiguraGeometrica() {
         
@@ -44,6 +45,15 @@ public class FiguraGeometrica {
         }
     }
 
+    public int[][] getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(int[][] coordenadas) {
+        this.coordenadas = coordenadas;
+    }
+    
+    
     public String getMensaje() {
         return mensaje;
     }
