@@ -11,8 +11,8 @@ package edu.unicundi.figurasgeometricas;
  */
 public class Main {
     public static void main(String[] args) {
-//        VistaFiguras figuras = new VistaFiguras();
-//        figuras.setVisible(true);
+        VistaFiguras figuras = new VistaFiguras();
+        figuras.setVisible(true);
 
         Cuadrado cua = new Cuadrado();
         cua.separarCoordenadas("1,1", "0.5,1", "1,0.5", "0,0");

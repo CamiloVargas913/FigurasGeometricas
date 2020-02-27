@@ -5,6 +5,11 @@
  */
 package edu.unicundi.figurasgeometricas;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import javax.swing.JPanel;
+
 /**
  *
  * @author PROFESIONAL
@@ -16,10 +21,19 @@ public class VistaFiguras extends javax.swing.JFrame {
      */
     public VistaFiguras() {
         initComponents();
-        cuadrado.setVisible(true);
-        rectangulo.setVisible(false);
-        triangulo.setVisible(false);
+        this.grafica.add(jpanel);
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setLocationRelativeTo(null);       
+
     }
+    JPanel jpanel = new JPanel() {
+            public void paint(Graphics g) {
+                super.paint(g);
+                g.drawLine(50, 150, 390, 150);
+                g.drawLine(150, 50, 150, 350);
+            }
+        };
+       
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,6 +89,7 @@ public class VistaFiguras extends javax.swing.JFrame {
         coor10 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         coor11 = new javax.swing.JTextField();
+        grafica = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,14 +190,13 @@ public class VistaFiguras extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jToggleButton1))
                     .addComponent(jLabel2))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
         cuadradoLayout.setVerticalGroup(
             cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cuadradoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
                 .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cuadradoLayout.createSequentialGroup()
                         .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -207,10 +221,9 @@ public class VistaFiguras extends javax.swing.JFrame {
                 .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jToggleButton1.getAccessibleContext().setAccessibleName("calcular");
         jLabel5.getAccessibleContext().setAccessibleName("area");
         jLabel6.getAccessibleContext().setAccessibleName("perimetro");
 
@@ -302,14 +315,13 @@ public class VistaFiguras extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jToggleButton2))
                     .addComponent(jLabel7))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         rectanguloLayout.setVerticalGroup(
             rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rectanguloLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rectanguloLayout.createSequentialGroup()
                         .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -334,7 +346,7 @@ public class VistaFiguras extends javax.swing.JFrame {
                 .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel11))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel12.setText("Ingrese las coordenadas del triangulo:");
@@ -414,7 +426,7 @@ public class VistaFiguras extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addGap(26, 26, 26)
                         .addComponent(jLabel15)))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(387, Short.MAX_VALUE))
         );
         trianguloLayout.setVerticalGroup(
             trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,7 +452,28 @@ public class VistaFiguras extends javax.swing.JFrame {
                 .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel16))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        grafica.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                graficaAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        javax.swing.GroupLayout graficaLayout = new javax.swing.GroupLayout(grafica);
+        grafica.setLayout(graficaLayout);
+        graficaLayout.setHorizontalGroup(
+            graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 706, Short.MAX_VALUE)
+        );
+        graficaLayout.setVerticalGroup(
+            graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 345, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -464,6 +497,11 @@ public class VistaFiguras extends javax.swing.JFrame {
                     .addGap(6, 6, 6)
                     .addComponent(triangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(7, 7, 7)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -473,18 +511,23 @@ public class VistaFiguras extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cuadrado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(370, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(46, 46, 46)
-                    .addComponent(rectangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(46, 46, 46)))
+                    .addGap(56, 56, 56)
+                    .addComponent(rectangulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(363, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(66, 66, 66)
-                    .addComponent(triangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(66, 66, 66)))
+                    .addComponent(triangulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(362, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(236, Short.MAX_VALUE)
+                    .addComponent(grafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         figuras.getAccessibleContext().setAccessibleName("figuras");
@@ -570,6 +613,10 @@ public class VistaFiguras extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_coor11ActionPerformed
 
+    private void graficaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_graficaAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_graficaAncestorAdded
+
     /**
      * @param args the command line arguments
      */
@@ -603,8 +650,8 @@ public class VistaFiguras extends javax.swing.JFrame {
                 new VistaFiguras().setVisible(true);
             }
         });
+        
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField coor1;
     private javax.swing.JTextField coor10;
@@ -619,6 +666,7 @@ public class VistaFiguras extends javax.swing.JFrame {
     private javax.swing.JTextField coor9;
     private javax.swing.JPanel cuadrado;
     private javax.swing.JComboBox<String> figuras;
+    private javax.swing.JPanel grafica;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
