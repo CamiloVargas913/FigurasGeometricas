@@ -19,7 +19,6 @@ public class FiguraGeometrica {
     private String coorde2;
     private String coorde3;
     private String mensaje;
-    private int coordenadas[][]= new int[4][4];
 
     public FiguraGeometrica() {
         
@@ -35,24 +34,15 @@ public class FiguraGeometrica {
         this.perimetro = lado1 * 4;
     }
 
-    public void validarCoordenadas(String coorde1, String coorde2, String coorde3) {
-        if (coorde1.equals("") || coorde2.equals("") || coorde3.equals("")) {
-            this.mensaje = "Las Coordenadas no pueden ser vacias";
-        }else{
-            this.coorde1 = coorde1;
-            this.coorde2 = coorde2;
-            this.coorde3 = coorde3;
-        }
-    }
-
-    public int[][] getCoordenadas() {
-        return coordenadas;
-    }
-
-    public void setCoordenadas(int[][] coordenadas) {
-        this.coordenadas = coordenadas;
-    }
-    
+//    public void validarCoordenadas(String coorde1, String coorde2, String coorde3) {
+//        if (coorde1.equals("") || coorde2.equals("") || coorde3.equals("")) {
+//            this.mensaje = "Las Coordenadas no pueden ser vacias";
+//        }else{
+//            this.coorde1 = coorde1;
+//            this.coorde2 = coorde2;
+//            this.coorde3 = coorde3;
+//        }
+//    }
     
     public String getMensaje() {
         return mensaje;

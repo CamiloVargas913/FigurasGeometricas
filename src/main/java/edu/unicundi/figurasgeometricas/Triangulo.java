@@ -9,6 +9,25 @@ package edu.unicundi.figurasgeometricas;
  *
  * @author user
  */
-public class Triangulo {
+public class Triangulo extends FiguraGeometrica {
+
+    private int lado2;
+    private int lado3;
+    
+    public void hallarArea(){
+        
+    }
+    
+    public void hallarPerimetro(){
+        
+    }
+    
+    public void pintar(){
+        
+    }
+    
+    public void tipoTriangulo(){
+        
+    }
     
 }

@@ -9,6 +9,16 @@ package edu.unicundi.figurasgeometricas;
  *
  * @author user
  */
-public class Rectangulo {
-    
+public class Rectangulo extends Cuadrilateros {
+
+    public Rectangulo() {
+
+        if (separarCoordenadas("-1,3", "1,3", "1,1", "-1,1") == true && getSumax() != getSumay()) {
+            System.out.println("Es rectangulo");
+        }else{
+            System.out.println("No es rectangulo");
+        }
+            
+    }
+
 }

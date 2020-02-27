@@ -15,7 +15,9 @@ public class Main {
 //        figuras.setVisible(true);
 
         Cuadrado cua = new Cuadrado();
-        cua.validarCoordenadas("0,0", "0,0", "0,0", "0,0");
+        cua.separarCoordenadas("1,1", "0.5,1", "1,0.5", "0,0");
+        Rectangulo rectangulo = new Rectangulo();
+        rectangulo.separarCoordenadas("1,1", "0.5,1", "1,0.5", "0,0");
        // System.out.println(cua.getMensaje());
     }
 }
