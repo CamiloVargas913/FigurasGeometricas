@@ -10,14 +10,22 @@ package edu.unicundi.figurasgeometricas;
  * @author PROFESIONAL
  */
 public class Main {
-    public static void main(String[] args) {
-        VistaFiguras figuras = new VistaFiguras();
-        figuras.setVisible(true);
 
-        Cuadrado cua = new Cuadrado();
-        cua.separarCoordenadas("1,1", "0.5,1", "1,0.5", "0,0");
-        Rectangulo rectangulo = new Rectangulo();
-        rectangulo.separarCoordenadas("1,1", "0.5,1", "1,0.5", "0,0");
-       // System.out.println(cua.getMensaje());
+    public static void main(String[] args) {
+        /*VistaFiguras figuras = new VistaFiguras();
+         figuras.setVisible(true);*/
+
+        Cuadrado cuadrado = new Cuadrado("-1,3", "2,3", "2,1", "-1,3");
+        cuadrado.separarCoordenadas();
+        cuadrado.hallarArea();
+        cuadrado.hallarPerimetro();
+        cuadrado.imprimirInfo();
+        
+        Rectangulo rectangulo = new Rectangulo("-1,3", "2,3", "2,1", "-1,3");
+        rectangulo.separarCoordenadas();
+        rectangulo.hallarArea();
+        rectangulo.hallarPerimetro();
+        rectangulo.imprimirInfo();
+
     }
 }

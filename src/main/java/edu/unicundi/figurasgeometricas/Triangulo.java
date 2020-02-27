@@ -11,23 +11,10 @@ package edu.unicundi.figurasgeometricas;
  */
 public class Triangulo extends FiguraGeometrica {
 
-    private int lado2;
-    private int lado3;
-    
-    public void hallarArea(){
-        
+    public Triangulo(String coorde1, String coorde2, String coorde3) {
+        super(coorde1, coorde2, coorde3);
     }
     
-    public void hallarPerimetro(){
-        
-    }
     
-    public void pintar(){
-        
-    }
-    
-    public void tipoTriangulo(){
-        
-    }
-    
+   
 }

@@ -11,17 +11,23 @@ package edu.unicundi.figurasgeometricas;
  */
 public class Rectangulo extends Cuadrilateros {
 
-    public Rectangulo() {
-        
-        if (separarCoordenadas("-1,3", "1,3", "1,1", "-1,1") == true && getSumax() != getSumay()) {
-            setPerimetro(getSumax()*2 + getSumay()*2);
-            setArea(getSumax() * getSumay());
-            System.out.println("Es rectangulo, perimetro " + getPerimetro());
-            System.out.println("Es rectangulo, area " + getArea());
-        } else {
-            System.out.println("No es rectangulo");
-        }
+    public Rectangulo(String coorde1, String coorde2, String coorde3, String coorde4) {
+        super(coorde1, coorde2, coorde3, coorde4);
+    }
 
+    @Override
+    public void imprimirInfo() {
+        if (separarCoordenadas() == true && getLado1() != getLado2()) {
+            System.out.println("Perimetro " + getPerimetro());
+            System.out.println("Area " + getArea());
+        } else {
+            System.out.println("No es un rectangulo");
+        }
+    }
+
+    @Override
+    public void hallarPerimetro() {
+        setPerimetro((getLado2() * 2) + (getLado1() * 2));
     }
 
 }

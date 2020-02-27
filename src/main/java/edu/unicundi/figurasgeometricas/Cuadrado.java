@@ -11,16 +11,20 @@ package edu.unicundi.figurasgeometricas;
  */
 public class Cuadrado extends Cuadrilateros {
 
-    public Cuadrado() {
-        
-        if (separarCoordenadas("-1,3", "1,3", "1,1", "-1,1") == true && getSumax() == getSumay()) {
-            setPerimetro(getSumax()*4);
-            setArea(getSumax() * getSumay());
-            System.out.println("Es cuadrado, perimetro " + getPerimetro());
-            System.out.println("Es cuadrado, area " + getArea());
+    public Cuadrado(String coorde1, String coorde2, String coorde3, String coorde4) {
+        super(coorde1, coorde2, coorde3, coorde4);
+
+    }
+
+    @Override
+    public void imprimirInfo() {
+        if (separarCoordenadas() == true && getLado1() == getLado2()) {
+            System.out.println("Perimetro " + getPerimetro());
+            System.out.println("Area " + getArea());
         }else{
-            System.out.println("No es cuadrado");
+            System.out.println("No es un cuadrado");
         }
+
     }
 
 }

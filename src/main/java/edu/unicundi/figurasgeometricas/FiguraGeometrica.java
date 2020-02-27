@@ -11,27 +11,33 @@ package edu.unicundi.figurasgeometricas;
  */
 public class FiguraGeometrica {
 
-    private int lado1;
-    private double area;
-    private double perimetro;
+    private int lado1, lado2;
+    private int area;
+    private int perimetro;
     private String color;
     private String coorde1;
     private String coorde2;
     private String coorde3;
     private String mensaje;
 
-    public FiguraGeometrica() {
+    public FiguraGeometrica(String coorde1, String coorde2, String coorde3) {
+        this.coorde1 = coorde1;
+        this.coorde2 = coorde2;
+        this.coorde3 = coorde3;
         
     }
 
-    public double hallarArea(int lado1) {
-        this.area = lado1 * lado1;
-
-        return this.area;
+    public void hallarArea() {
+        this.area = lado1 * lado2;
     }
 
-    public void hallarPerimetro(int lado1) {
+    public void hallarPerimetro() {
         this.perimetro = lado1 * 4;
+    }
+
+    public void imprimirInfo() {
+        System.out.println("Perimetro " + getPerimetro());
+        System.out.println("Area " + getArea());
     }
 
 //    public void validarCoordenadas(String coorde1, String coorde2, String coorde3) {
@@ -43,7 +49,6 @@ public class FiguraGeometrica {
 //            this.coorde3 = coorde3;
 //        }
 //    }
-    
     public String getMensaje() {
         return mensaje;
     }
@@ -60,19 +65,27 @@ public class FiguraGeometrica {
         this.lado1 = lado1;
     }
 
-    public double getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(double area) {
+    public int getLado2() {
+        return lado2;
+    }
+
+    public void setLado2(int lado2) {
+        this.lado2 = lado2;
+    }
+
+    public void setArea(int area) {
         this.area = area;
     }
 
-    public double getPerimetro() {
+    public int getPerimetro() {
         return perimetro;
     }
 
-    public void setPerimetro(double perimetro) {
+    public void setPerimetro(int perimetro) {
         this.perimetro = perimetro;
     }
 
