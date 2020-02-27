@@ -12,13 +12,16 @@ package edu.unicundi.figurasgeometricas;
 public class Rectangulo extends Cuadrilateros {
 
     public Rectangulo() {
-
+        
         if (separarCoordenadas("-1,3", "1,3", "1,1", "-1,1") == true && getSumax() != getSumay()) {
-            System.out.println("Es rectangulo");
-        }else{
+            setPerimetro(getSumax()*2 + getSumay()*2);
+            setArea(getSumax() * getSumay());
+            System.out.println("Es rectangulo, perimetro " + getPerimetro());
+            System.out.println("Es rectangulo, area " + getArea());
+        } else {
             System.out.println("No es rectangulo");
         }
-            
+
     }
 
 }

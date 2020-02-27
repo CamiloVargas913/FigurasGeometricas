@@ -14,7 +14,10 @@ public class Cuadrado extends Cuadrilateros {
     public Cuadrado() {
         
         if (separarCoordenadas("-1,3", "1,3", "1,1", "-1,1") == true && getSumax() == getSumay()) {
-            System.out.println("Es cuadrado");
+            setPerimetro(getSumax()*4);
+            setArea(getSumax() * getSumay());
+            System.out.println("Es cuadrado, perimetro " + getPerimetro());
+            System.out.println("Es cuadrado, area " + getArea());
         }else{
             System.out.println("No es cuadrado");
         }

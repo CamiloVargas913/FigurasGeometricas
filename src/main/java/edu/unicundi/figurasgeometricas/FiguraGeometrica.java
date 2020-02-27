@@ -12,8 +12,8 @@ package edu.unicundi.figurasgeometricas;
 public class FiguraGeometrica {
 
     private int lado1;
-    private int area;
-    private int perimetro;
+    private double area;
+    private double perimetro;
     private String color;
     private String coorde1;
     private String coorde2;
@@ -24,7 +24,7 @@ public class FiguraGeometrica {
         
     }
 
-    public int hallarArea(int lado1) {
+    public double hallarArea(int lado1) {
         this.area = lado1 * lado1;
 
         return this.area;
@@ -60,19 +60,19 @@ public class FiguraGeometrica {
         this.lado1 = lado1;
     }
 
-    public int getArea() {
+    public double getArea() {
         return area;
     }
 
-    public void setArea(int area) {
+    public void setArea(double area) {
         this.area = area;
     }
 
-    public int getPerimetro() {
+    public double getPerimetro() {
         return perimetro;
     }
 
-    public void setPerimetro(int perimetro) {
+    public void setPerimetro(double perimetro) {
         this.perimetro = perimetro;
     }
 
