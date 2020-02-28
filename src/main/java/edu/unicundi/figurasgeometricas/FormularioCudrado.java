@@ -5,6 +5,9 @@
  */
 package edu.unicundi.figurasgeometricas;
 
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+
 /**
  *
  * @author PROFESIONAL
@@ -27,7 +30,7 @@ public class FormularioCudrado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
+        mensajePerimetro = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         coor2 = new javax.swing.JTextField();
@@ -38,11 +41,9 @@ public class FormularioCudrado extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         coor1 = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        mensajeArea = new javax.swing.JLabel();
 
-        jLabel6.setText("-");
+        mensajePerimetro.setText("-");
 
         jLabel18.setText("Coordenada #1");
 
@@ -86,11 +87,7 @@ public class FormularioCudrado extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Su area es:");
-
-        jLabel4.setText("Su perimetro es:");
-
-        jLabel5.setText("-");
+        mensajeArea.setText("-");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -99,14 +96,6 @@ public class FormularioCudrado extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -129,7 +118,10 @@ public class FormularioCudrado extends javax.swing.JPanel {
                                 .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(29, 29, 29)
                         .addComponent(jToggleButton1))
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(mensajePerimetro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mensajeArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,13 +146,9 @@ public class FormularioCudrado extends javax.swing.JPanel {
                         .addGap(9, 9, 9)
                         .addComponent(jToggleButton1)))
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5))
+                .addComponent(mensajeArea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6))
+                .addComponent(mensajePerimetro)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -182,7 +170,25 @@ public class FormularioCudrado extends javax.swing.JPanel {
     }//GEN-LAST:event_coor1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        
+        Cuadrado cuadrado = new Cuadrado(coor1.getText(), coor2.getText(), coor3.getText(), coor4.getText());
+        cuadrado.separarCoordenadas();
+        cuadrado.hallarArea();
+        cuadrado.hallarPerimetro();
+        cuadrado.imprimirInfo();
+        mensajeArea.setText(cuadrado.getMensajeArea());
+        mensajePerimetro.setText(cuadrado.getMensajePerimetro());
+
+        cuadrado.convertirCoordenadasPlano();
+       
+        VistaGrafico grafico = new VistaGrafico();
+//        grafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4);
+       
+        
+        
+
+
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
@@ -196,10 +202,8 @@ public class FormularioCudrado extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel mensajeArea;
+    private javax.swing.JLabel mensajePerimetro;
     // End of variables declaration//GEN-END:variables
 }

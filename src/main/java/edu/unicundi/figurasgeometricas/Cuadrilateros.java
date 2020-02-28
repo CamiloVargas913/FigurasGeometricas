@@ -12,6 +12,9 @@ package edu.unicundi.figurasgeometricas;
 public class Cuadrilateros extends FiguraGeometrica {
 
     private String coorde4;
+    private int coordx[]= new int[4]; 
+    private int coordy[]= new int[4]; 
+
     private int coordenadas[][] = new int[4][4];
 
     public Cuadrilateros(String coorde1, String coorde2, String coorde3, String coorde4) {
@@ -67,6 +70,37 @@ public class Cuadrilateros extends FiguraGeometrica {
         } else {
             return false;
         }
+    }
+    
+     public void convertirCoordenadasPlano() {
+        //corde[1][3] = ;
+
+        for (int i = 0; i < this.coordenadas.length; i++) {
+            if (this.coordenadas[0][i] >= 0) {
+                this.coordenadas[0][i] = ((this.coordenadas[0][i] * 10) + 250);
+            } else {
+                this.coordenadas[0][i] = (250 + (this.coordenadas[0][i] * 10));
+            }
+
+            if (this.coordenadas[1][i] < 0) {
+                this.coordenadas[1][i] = (250 + (Math.abs(this.coordenadas[1][i] * 10)));
+            } else {
+                this.coordenadas[1][i] = (250 - Math.abs(this.coordenadas[1][i] * 10));
+            }
+        }
+
+        this.coordx[0] = this.coordenadas[0][0];
+        this.coordx[1] = this.coordenadas[0][1];
+        this.coordx[2] = this.coordenadas[0][2];
+        this.coordx[3] = this.coordenadas[0][2];
+        
+        this.coordy[0] = this.coordenadas[1][0];
+        this.coordy[1] = this.coordenadas[1][1];
+        this.coordy[2] = this.coordenadas[1][2];
+        this.coordy[3] = this.coordenadas[1][2];
+        
+         setCoordx(this.coordx);
+         setCoordy(this.coordy);
     }
 
 

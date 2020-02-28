@@ -19,13 +19,21 @@ public class FiguraGeometrica {
     private String coorde1;
     private String coorde2;
     private String coorde3;
+    private String mensajeArea;
     private String mensaje;
+    private String mensajePerimetro;
     private int coordenadas[][] = new int[3][3];
+    private int coordx[];
+    private int coordy[];
 
     public FiguraGeometrica(String coorde1, String coorde2, String coorde3) {
         this.coorde1 = coorde1;
         this.coorde2 = coorde2;
         this.coorde3 = coorde3;
+        this.mensaje = "";
+        this.mensajeArea = "";
+        this.mensajePerimetro = "";
+
     }
 
     public void hallarArea() {
@@ -37,7 +45,7 @@ public class FiguraGeometrica {
     }
 
     public void imprimirInfo() {
-        
+
         System.out.println("Perimetro " + getPerimetro());
         System.out.printf("Area: %.2f ", getArea());
     }
@@ -87,6 +95,49 @@ public class FiguraGeometrica {
         }
     }
 
+    public void convertirCoordenadasPlano() {
+        //corde[1][3] = ;
+
+        for (int i = 0; i < this.coordenadas.length; i++) {
+            if (this.coordenadas[0][i] >= 0) {
+                this.coordenadas[0][i] = ((this.coordenadas[0][i] * 10) + 250);
+            } else {
+                this.coordenadas[0][i] = (250 + (this.coordenadas[0][i] * 10));
+            }
+
+            if (this.coordenadas[1][i] < 0) {
+                this.coordenadas[1][i] = (250 + (Math.abs(this.coordenadas[1][i] * 10)));
+            } else {
+                this.coordenadas[1][i] = (250 - Math.abs(this.coordenadas[1][i] * 10));
+            }
+        }
+
+        this.coordx[0] = this.coordenadas[0][0];
+        this.coordx[1] = this.coordenadas[0][1];
+        this.coordx[2] = this.coordenadas[0][2];
+        this.coordy[0] = this.coordenadas[1][0];
+        this.coordy[1] = this.coordenadas[1][1];
+        this.coordy[2] = this.coordenadas[1][2];
+
+    }
+
+    public int[] getCoordx() {
+        return coordx;
+    }
+
+    public void setCoordx(int[] coordx) {
+        this.coordx = coordx;
+    }
+
+    public int[] getCoordy() {
+        return coordy;
+    }
+
+    public void setCoordy(int[] coordy) {
+        this.coordy = coordy;
+    }
+
+    
     public double getLado3() {
         return lado3;
     }
@@ -101,6 +152,30 @@ public class FiguraGeometrica {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public String getMensajeArea() {
+        return mensajeArea;
+    }
+
+    public void setMensajeArea(String mensajeArea) {
+        this.mensajeArea = mensajeArea;
+    }
+
+    public String getMensajePerimetro() {
+        return mensajePerimetro;
+    }
+
+    public void setMensajePerimetro(String mensajePerimetro) {
+        this.mensajePerimetro = mensajePerimetro;
+    }
+
+    public int[][] getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(int[][] coordenadas) {
+        this.coordenadas = coordenadas;
     }
 
     public double getLado1() {

@@ -19,10 +19,10 @@ public class Cuadrado extends Cuadrilateros {
     @Override
     public void imprimirInfo() {
         if (separarCoordenadas() == true && getLado1() == getLado2()) {
-            System.out.println("Perimetro " + getPerimetro());
-            System.out.println("Area " + getArea());
+            setMensajePerimetro("Perimetro " + getPerimetro());
+            setMensajeArea("Area " + getArea());
         }else{
-            System.out.println("No es un cuadrado");
+           setMensaje("No es un cuadrado");
         }
 
     }

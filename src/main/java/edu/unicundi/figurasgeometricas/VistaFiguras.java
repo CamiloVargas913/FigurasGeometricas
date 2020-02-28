@@ -24,8 +24,7 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         this.getContentPane().setBackground(Color.WHITE);
         this.setLocationRelativeTo(null);
-        
-
+       
         VistaGrafico graf = new VistaGrafico();
         graf.setSize(500, 500);
         graf.setLocation(0, 0);
