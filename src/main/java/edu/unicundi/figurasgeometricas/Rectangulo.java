@@ -30,10 +30,10 @@ public class Rectangulo extends Cuadrilateros {
     @Override
     public void imprimirInfo() {
         if (separarCoordenadas() == true && getLado1() != getLado2()) {
-            System.out.println("Perimetro " + getPerimetro());
-            System.out.println("Area " + getArea());
+            setMensajePerimetro("Perimetro " + getPerimetro());
+            setMensajeArea("Area " + getArea());
         } else {
-            System.out.println("No es un rectangulo");
+            setMensaje("No es un rectangulo");
         }
     }
 

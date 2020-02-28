@@ -32,13 +32,13 @@ public class Triangulo extends FiguraGeometrica {
         
         if (separarCoordenadas() == true) {
             if (getLado1() == getLado2() && getLado2() == getLado3() && getLado3() == getLado1()) {
-                System.out.println("Es equilatero");
+                setMensaje("Es equilatero");
             } else if (getLado1() == getLado2() && getLado2() != getLado3()
                     || getLado1() == getLado3() && getLado3() != getLado2()
                     || getLado2() == getLado3() && getLado3() != getLado1()) {
-                System.out.println("Es isosceles");
+                setMensaje("Es isosceles");
             } else {
-                System.out.println("Es escaleno");
+                setMensaje("Es escaleno");
             }
         }
         
@@ -56,10 +56,10 @@ public class Triangulo extends FiguraGeometrica {
     @Override
     public void imprimirInfo() {
         if (separarCoordenadas() == true) {
-            System.out.println("Perimetro " + getPerimetro());
-            System.out.println("Area " + getArea());
+            setMensajePerimetro("Perimetro " + getPerimetro());
+            setMensajeArea("Area " + getArea());
         } else {
-            System.out.println("No es un triangulo");
+            setMensaje("No es un triangulo");
         }
     }
     /**

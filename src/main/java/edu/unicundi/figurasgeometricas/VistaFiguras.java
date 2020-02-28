@@ -317,26 +317,70 @@ public class VistaFiguras extends javax.swing.JFrame {
                 cuadrado.imprimirInfo();
                 mensajeArea.setVisible(true);
                 mensajePerimetro.setVisible(true);
+                mensaje.setVisible(true);
                 mensajeArea.setText(cuadrado.getMensajeArea());
                 mensajePerimetro.setText(cuadrado.getMensajePerimetro());
+                mensaje.setText(cuadrado.getMensaje());
                 cuadrado.convertirCoordenadasPlano();
-                
                 vistaGrafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4);
+                
+                cuadrado.setCoorde1("0,0");
+                cuadrado.setCoorde2("0,0");
+                cuadrado.setCoorde3("0,0");
+                cuadrado.setCoorde4("0,0");
 
-                vistaGrafico.setSize(500, 500);
-                vistaGrafico.setLocation(0, 0);
-                grafico.removeAll();
-                grafico.add(vistaGrafico, BorderLayout.CENTER);
-                grafico.revalidate();
-                grafico.repaint();
-                grafico.setVisible(true);
                 break;
             case 2:
+                Rectangulo rectangulo = new Rectangulo(coor1.getText(), coor2.getText(), coor3.getText(), coor4.getText());
+                rectangulo.separarCoordenadas();
+                rectangulo.hallarArea();
+                rectangulo.hallarPerimetro();
+                rectangulo.imprimirInfo();
+                mensajeArea.setVisible(true);
+                mensajePerimetro.setVisible(true);
+                mensaje.setVisible(true);
+                mensajeArea.setText(rectangulo.getMensajeArea());
+                mensajePerimetro.setText(rectangulo.getMensajePerimetro());
+                mensaje.setText(rectangulo.getMensaje());
+                rectangulo.convertirCoordenadasPlano();
+                vistaGrafico.RecibirCoordenadas(rectangulo.getCoordx(), rectangulo.getCoordy(), 4);
+                
+                rectangulo.setCoorde1("0,0");
+                rectangulo.setCoorde2("0,0");
+                rectangulo.setCoorde3("0,0");
+                rectangulo.setCoorde4("0,0");
                 break;
 
             case 3:
+                Triangulo triangulo = new Triangulo(coor1.getText(), coor2.getText(), coor3.getText());
+                triangulo.separarCoordenadas();
+                triangulo.validarTipoTriangulo();
+                triangulo.hallarPerimetro();
+                triangulo.hallarArea();
+                triangulo.imprimirInfo();
+                mensajeArea.setVisible(true);
+                mensajePerimetro.setVisible(true);
+                mensaje.setVisible(true);
+                mensajeArea.setText(triangulo.getMensajeArea());
+                mensajePerimetro.setText(triangulo.getMensajePerimetro());
+                mensaje.setText(triangulo.getMensaje());
+                triangulo.convertirCoordenadasPlano();
+                vistaGrafico.RecibirCoordenadas(triangulo.getCoordx(), triangulo.getCoordy(), 3);
+                
+                triangulo.setCoorde1("0,0");
+                triangulo.setCoorde2("0,0");
+                triangulo.setCoorde3("0,0");
+                
+                
                 break;
         }
+        vistaGrafico.setSize(500, 500);
+        vistaGrafico.setLocation(0, 0);
+        grafico.removeAll();
+        grafico.add(vistaGrafico, BorderLayout.CENTER);
+        grafico.revalidate();
+        grafico.repaint();
+        grafico.setVisible(true);
 
 
     }//GEN-LAST:event_jToggleButton1ActionPerformed

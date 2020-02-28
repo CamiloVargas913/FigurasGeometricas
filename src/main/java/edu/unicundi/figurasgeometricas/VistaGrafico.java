@@ -47,9 +47,7 @@ public class VistaGrafico extends javax.swing.JPanel {
             g.drawLine(i, 245, i, 255);
 
         }
-        for (int i = 0; i < this.coordx.length; i++) {
-            System.out.println(this.coordx[i]);
-        }
+        
         Polygon Polygon = new Polygon(this.coordx, this.coordy, cantidadLados);
         g.setColor(Color.BLUE);
         g.drawPolygon(Polygon);
