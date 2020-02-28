@@ -24,15 +24,11 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         this.getContentPane().setBackground(Color.WHITE);
         this.setLocationRelativeTo(null);
-       
-        VistaGrafico graf = new VistaGrafico();
-        graf.setSize(500, 500);
-        graf.setLocation(0, 0);
-        grafico.removeAll();
-        grafico.add(graf, BorderLayout.CENTER);
-        grafico.revalidate();
-        grafico.repaint();
-
+        cuadrado.setVisible(false);
+        grafico.setVisible(false);
+        mensajeArea.setVisible(false);
+        mensajePerimetro.setVisible(false);
+        mensaje.setVisible(false);
     }
 
     /**
@@ -46,8 +42,23 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         figuras = new javax.swing.JComboBox<>();
+        cuadrado = new javax.swing.JPanel();
+        mensajePerimetro = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        coor2 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        coor3 = new javax.swing.JTextField();
+        coor4 = new javax.swing.JTextField();
+        lbCoor4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        coor1 = new javax.swing.JTextField();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        mensajeArea = new javax.swing.JLabel();
+        mensaje = new javax.swing.JLabel();
         grafico = new javax.swing.JPanel();
-        formulario = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,47 +71,168 @@ public class VistaFiguras extends javax.swing.JFrame {
             }
         });
 
+        mensajePerimetro.setText("-");
+
+        jLabel18.setText("Coordenada #1");
+
+        jLabel19.setText("Coordenada #2");
+
+        coor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coor2ActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Coordenada #3");
+
+        coor3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coor3ActionPerformed(evt);
+            }
+        });
+
+        coor4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coor4ActionPerformed(evt);
+            }
+        });
+
+        lbCoor4.setText("Coordenada #4");
+
+        jLabel2.setText("Ingrese las coordenadas:");
+
+        coor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coor1ActionPerformed(evt);
+            }
+        });
+
+        jToggleButton1.setText("calcular");
+        jToggleButton1.setActionCommand("Calcular");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        mensajeArea.setText("-");
+
+        mensaje.setText("-");
+
         javax.swing.GroupLayout graficoLayout = new javax.swing.GroupLayout(grafico);
         grafico.setLayout(graficoLayout);
         graficoLayout.setHorizontalGroup(
             graficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 510, Short.MAX_VALUE)
         );
         graficoLayout.setVerticalGroup(
             graficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 492, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout formularioLayout = new javax.swing.GroupLayout(formulario);
-        formulario.setLayout(formularioLayout);
-        formularioLayout.setHorizontalGroup(
-            formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout cuadradoLayout = new javax.swing.GroupLayout(cuadrado);
+        cuadrado.setLayout(cuadradoLayout);
+        cuadradoLayout.setHorizontalGroup(
+            cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cuadradoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mensajeArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(cuadradoLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap())
+                    .addGroup(cuadradoLayout.createSequentialGroup()
+                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mensajePerimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(cuadradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cuadradoLayout.createSequentialGroup()
+                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                .addComponent(lbCoor4)
+                                .addGap(18, 18, 18)
+                                .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addComponent(jToggleButton1))
+                    .addComponent(grafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        formularioLayout.setVerticalGroup(
-            formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 181, Short.MAX_VALUE)
+        cuadradoLayout.setVerticalGroup(
+            cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cuadradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cuadradoLayout.createSequentialGroup()
+                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18)
+                            .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19)
+                            .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCoor4)))
+                    .addGroup(cuadradoLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jToggleButton1)))
+                .addGap(18, 18, 18)
+                .addComponent(mensajeArea)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mensajePerimetro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mensaje)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        jLabel3.setText("Seleccione Color");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Rojo", "Azul", "Amarillo", "Verde", "Negro" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 154, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(formulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,12 +240,12 @@ public class VistaFiguras extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                    .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         figuras.getAccessibleContext().setAccessibleName("figuras");
@@ -125,39 +257,93 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         switch (figuras.getSelectedIndex()) {
             case 0:
-                formulario.removeAll();
-                formulario.repaint();
+                cuadrado.setVisible(false);
                 break;
             case 1:
-                FormularioCudrado formC = new FormularioCudrado();
-                formC.setSize(500, 500);
-                formC.setLocation(0, 0);
-                formulario.removeAll();
-                formulario.add(formC, BorderLayout.CENTER);
-                formulario.revalidate();
-                formulario.repaint();
+                cuadrado.setVisible(true);
+                coor1.setVisible(true);
+                coor2.setVisible(true);
+                coor3.setVisible(true);
+                coor4.setVisible(true);
+                lbCoor4.setVisible(true);
+
                 break;
             case 2:
-                FormularioRectangulo formR = new FormularioRectangulo();
-                formR.setSize(500, 500);
-                formR.setLocation(0, 0);
-                formulario.removeAll();
-                formulario.add(formR, BorderLayout.CENTER);
-                formulario.revalidate();
-                formulario.repaint();
+                cuadrado.setVisible(true);
+                coor1.setVisible(true);
+                coor2.setVisible(true);
+                coor3.setVisible(true);
+                coor4.setVisible(true);
+                lbCoor4.setVisible(true);
+
                 break;
             case 3:
-                FormularioTriangulo formT = new FormularioTriangulo();
-                formT.setSize(500, 500);
-                formT.setLocation(0, 0);
-                formulario.removeAll();
-                formulario.add(formT, BorderLayout.CENTER);
-                formulario.revalidate();
-                formulario.repaint();
+                cuadrado.setVisible(true);
+                coor4.setVisible(false);
+                lbCoor4.setVisible(false);
                 break;
         }
 
+
     }//GEN-LAST:event_figurasActionPerformed
+
+    private void coor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coor2ActionPerformed
+
+    private void coor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coor3ActionPerformed
+
+    private void coor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coor4ActionPerformed
+
+    private void coor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coor1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+
+        VistaGrafico vistaGrafico = new VistaGrafico();
+        switch (figuras.getSelectedIndex()) {
+            case 0:
+                break;
+            case 1:
+                Cuadrado cuadrado = new Cuadrado(coor1.getText(), coor2.getText(), coor3.getText(), coor4.getText());
+                cuadrado.separarCoordenadas();
+                cuadrado.hallarArea();
+                cuadrado.hallarPerimetro();
+                cuadrado.imprimirInfo();
+                mensajeArea.setVisible(true);
+                mensajePerimetro.setVisible(true);
+                mensajeArea.setText(cuadrado.getMensajeArea());
+                mensajePerimetro.setText(cuadrado.getMensajePerimetro());
+                cuadrado.convertirCoordenadasPlano();
+                
+                vistaGrafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4);
+
+                vistaGrafico.setSize(500, 500);
+                vistaGrafico.setLocation(0, 0);
+                grafico.removeAll();
+                grafico.add(vistaGrafico, BorderLayout.CENTER);
+                grafico.revalidate();
+                grafico.repaint();
+                grafico.setVisible(true);
+                break;
+            case 2:
+                break;
+
+            case 3:
+                break;
+        }
+
+
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,10 +381,25 @@ public class VistaFiguras extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField coor1;
+    private javax.swing.JTextField coor2;
+    private javax.swing.JTextField coor3;
+    private javax.swing.JTextField coor4;
+    private javax.swing.JPanel cuadrado;
     private javax.swing.JComboBox<String> figuras;
-    private javax.swing.JPanel formulario;
     private javax.swing.JPanel grafico;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbCoor4;
+    private javax.swing.JLabel mensaje;
+    private javax.swing.JLabel mensajeArea;
+    private javax.swing.JLabel mensajePerimetro;
     // End of variables declaration//GEN-END:variables
 
     private LayoutManager BoxLayout(Container contentPane, int LINE_AXIS) {

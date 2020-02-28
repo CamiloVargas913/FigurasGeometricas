@@ -23,8 +23,8 @@ public class FiguraGeometrica {
     private String mensaje;
     private String mensajePerimetro;
     private int coordenadas[][] = new int[3][3];
-    private int coordx[];
-    private int coordy[];
+    private int coordx[] = new int [4];
+    private int coordy[]= new int [4];
 
     public FiguraGeometrica(String coorde1, String coorde2, String coorde3) {
         this.coorde1 = coorde1;
@@ -118,7 +118,9 @@ public class FiguraGeometrica {
         this.coordy[0] = this.coordenadas[1][0];
         this.coordy[1] = this.coordenadas[1][1];
         this.coordy[2] = this.coordenadas[1][2];
-
+        
+        setCoordx(this.coordx);
+        setCoordy(this.coordy);
     }
 
     public int[] getCoordx() {

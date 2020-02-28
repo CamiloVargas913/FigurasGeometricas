@@ -92,12 +92,12 @@ public class Cuadrilateros extends FiguraGeometrica {
         this.coordx[0] = this.coordenadas[0][0];
         this.coordx[1] = this.coordenadas[0][1];
         this.coordx[2] = this.coordenadas[0][2];
-        this.coordx[3] = this.coordenadas[0][2];
+        this.coordx[3] = this.coordenadas[0][3];
         
         this.coordy[0] = this.coordenadas[1][0];
         this.coordy[1] = this.coordenadas[1][1];
         this.coordy[2] = this.coordenadas[1][2];
-        this.coordy[3] = this.coordenadas[1][2];
+        this.coordy[3] = this.coordenadas[1][3];
         
          setCoordx(this.coordx);
          setCoordy(this.coordy);

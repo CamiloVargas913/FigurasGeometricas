@@ -19,29 +19,20 @@ public class VistaGrafico extends javax.swing.JPanel {
     /**
      * Creates new form VistaGrafico
      */
-    private int coordx[];
-    private int coordy[];
+    private int coordx[] = new int [4];
+    private int coordy[] = new int [4];
     private int cantidadLados;
     public VistaGrafico() {
         initComponents();
     }
 
     public void RecibirCoordenadas(int coordx[],int coordy[],int cantidadLados ){
-//        this.coordx = coordx;
-//        this.coordy = coordy;
-//        this.cantidadLados= cantidadLados;
-//        for (int i = 0; i < this.coordx.length; i++) {
-//            System.out.println(this.coordx[i]);
-//        }
-//        
-//        Polygon Polygon = new Polygon(this.coordx, this.coordy, cantidadLados);
-////        this.g.setColor(Color.BLUE);
-//        this.g.drawPolygon(Polygon);
-//        
+        this.coordx = coordx;
+        this.coordy = coordy;
+        this.cantidadLados= cantidadLados;        
        
     }
     public void paint(Graphics g) {
-    
         super.paint(g);
         //linea en x
         g.setColor(Color.red);
@@ -56,10 +47,12 @@ public class VistaGrafico extends javax.swing.JPanel {
             g.drawLine(i, 245, i, 255);
 
         }
-
-//        Polygon Polygon = new Polygon(this.coordx, this.coordy, cantidadLados);
-//        g.setColor(Color.BLUE);
-//        g.drawPolygon(Polygon);
+        for (int i = 0; i < this.coordx.length; i++) {
+            System.out.println(this.coordx[i]);
+        }
+        Polygon Polygon = new Polygon(this.coordx, this.coordy, cantidadLados);
+        g.setColor(Color.BLUE);
+        g.drawPolygon(Polygon);
 
     }
 
