@@ -19,6 +19,7 @@ public class Cuadrilateros extends FiguraGeometrica {
         this.coorde4 = coorde4;
     }
 
+    @Override
     public boolean separarCoordenadas() {
         if (getCoorde1().equals("") || getCoorde2().equals("") || getCoorde3().equals("") || this.coorde4.equals("")) {
             setMensaje("Las Coordenadas no pueden ser vacias");
@@ -37,11 +38,12 @@ public class Cuadrilateros extends FiguraGeometrica {
             this.coordenadas[1][1] = Integer.parseInt(parte2[1]);
             this.coordenadas[1][2] = Integer.parseInt(parte3[1]);
             this.coordenadas[1][3] = Integer.parseInt(parte4[1]);
-            validarCoordenadas();
+            return validarCoordenadas();
         }
-        return validarCoordenadas();
+        return false;
     }
 
+    @Override
     public boolean validarCoordenadas() {
         //validacion eje y
         if (this.coordenadas[1][0] == this.coordenadas[1][1]) {
@@ -66,6 +68,7 @@ public class Cuadrilateros extends FiguraGeometrica {
             return false;
         }
     }
+
 
     public String getCoorde4() {
         return coorde4;
