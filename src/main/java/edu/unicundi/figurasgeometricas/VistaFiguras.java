@@ -58,7 +58,7 @@ public class VistaFiguras extends javax.swing.JFrame {
         mensaje = new javax.swing.JLabel();
         grafico = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        color = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,7 +179,6 @@ public class VistaFiguras extends javax.swing.JFrame {
             .addGroup(cuadradoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cuadradoLayout.createSequentialGroup()
                         .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,10 +208,10 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         jLabel3.setText("Seleccione Color");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Rojo", "Azul", "Amarillo", "Verde", "Negro" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        color.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Rojo", "Azul", "Amarillo", "Verde", "Negro" }));
+        color.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                colorActionPerformed(evt);
             }
         });
 
@@ -231,7 +230,7 @@ public class VistaFiguras extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -242,7 +241,7 @@ public class VistaFiguras extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -302,9 +301,36 @@ public class VistaFiguras extends javax.swing.JFrame {
     private void coor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_coor1ActionPerformed
-
+/**
+ * Metodo para activar el evento del boton 
+ * @param evt 
+ */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        
+        // valida el color de la figura
+        Color colores = new Color(0,0,0);
+        switch (color.getSelectedIndex()) {
+            case 0:
+                   colores = new Color(0,0,0);
+                break;
+            case 1:
+                colores = new Color(255,0,0);
+                break;
+            case 2:
+                colores = new Color(0,0,255);
+                break;
+            case 3:
+                colores = new Color(255,255,0);
+                break;
+            case 4:
+                colores = new Color(0,255,0);
+                break;
+            case 5:
+                colores = new Color(0,0,0);
+                break;
+        }
 
+        // valida el tipo de figura y calcula su area y su perimetro
         VistaGrafico vistaGrafico = new VistaGrafico();
         switch (figuras.getSelectedIndex()) {
             case 0:
@@ -322,8 +348,8 @@ public class VistaFiguras extends javax.swing.JFrame {
                 mensajePerimetro.setText(cuadrado.getMensajePerimetro());
                 mensaje.setText(cuadrado.getMensaje());
                 cuadrado.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4);
-                
+                vistaGrafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4,colores);
+
                 cuadrado.setCoorde1("0,0");
                 cuadrado.setCoorde2("0,0");
                 cuadrado.setCoorde3("0,0");
@@ -343,8 +369,8 @@ public class VistaFiguras extends javax.swing.JFrame {
                 mensajePerimetro.setText(rectangulo.getMensajePerimetro());
                 mensaje.setText(rectangulo.getMensaje());
                 rectangulo.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(rectangulo.getCoordx(), rectangulo.getCoordy(), 4);
-                
+                vistaGrafico.RecibirCoordenadas(rectangulo.getCoordx(), rectangulo.getCoordy(), 4,colores);
+
                 rectangulo.setCoorde1("0,0");
                 rectangulo.setCoorde2("0,0");
                 rectangulo.setCoorde3("0,0");
@@ -365,13 +391,12 @@ public class VistaFiguras extends javax.swing.JFrame {
                 mensajePerimetro.setText(triangulo.getMensajePerimetro());
                 mensaje.setText(triangulo.getMensaje());
                 triangulo.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(triangulo.getCoordx(), triangulo.getCoordy(), 3);
-                
+                vistaGrafico.RecibirCoordenadas(triangulo.getCoordx(), triangulo.getCoordy(), 3,colores);
+
                 triangulo.setCoorde1("0,0");
                 triangulo.setCoorde2("0,0");
                 triangulo.setCoorde3("0,0");
-                
-                
+
                 break;
         }
         vistaGrafico.setSize(500, 500);
@@ -385,12 +410,16 @@ public class VistaFiguras extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_colorActionPerformed
 
     /**
      * @param args the command line arguments
+     */
+    /**
+     * 
+     * @param args 
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -425,6 +454,7 @@ public class VistaFiguras extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> color;
     private javax.swing.JTextField coor1;
     private javax.swing.JTextField coor2;
     private javax.swing.JTextField coor3;
@@ -432,7 +462,6 @@ public class VistaFiguras extends javax.swing.JFrame {
     private javax.swing.JPanel cuadrado;
     private javax.swing.JComboBox<String> figuras;
     private javax.swing.JPanel grafico;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;

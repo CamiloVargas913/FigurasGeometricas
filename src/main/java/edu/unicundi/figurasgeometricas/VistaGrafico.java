@@ -22,14 +22,16 @@ public class VistaGrafico extends javax.swing.JPanel {
     private int coordx[] = new int [4];
     private int coordy[] = new int [4];
     private int cantidadLados;
+    private Color colores;
     public VistaGrafico() {
         initComponents();
     }
 
-    public void RecibirCoordenadas(int coordx[],int coordy[],int cantidadLados ){
+    public void RecibirCoordenadas(int coordx[],int coordy[],int cantidadLados, Color colores ){
         this.coordx = coordx;
         this.coordy = coordy;
-        this.cantidadLados= cantidadLados;        
+        this.cantidadLados= cantidadLados;  
+        this.colores = colores;
        
     }
     public void paint(Graphics g) {
@@ -46,10 +48,9 @@ public class VistaGrafico extends javax.swing.JPanel {
             g.drawLine(245, i, 255, i);
             g.drawLine(i, 245, i, 255);
 
-        }
-        
+        }        
         Polygon Polygon = new Polygon(this.coordx, this.coordy, cantidadLados);
-        g.setColor(Color.BLUE);
+        g.setColor(this.colores);
         g.drawPolygon(Polygon);
 
     }

@@ -5,6 +5,8 @@
  */
 package edu.unicundi.figurasgeometricas;
 
+import java.awt.Color;
+
 /**
  * Clase para manejar los metodos de las figuras geometricas
  *
@@ -84,6 +86,7 @@ public class FiguraGeometrica {
      * Variable para almacenar el valor de las coordenadas en y de la figura
      */
      private int coordy[]= new int [4];
+     
     /**
      * Contructor de la clase
      *
@@ -481,5 +484,6 @@ public class FiguraGeometrica {
     public void setCoorde3(String coorde3) {
         this.coorde3 = coorde3;
     }
-
+    
+    
 }
