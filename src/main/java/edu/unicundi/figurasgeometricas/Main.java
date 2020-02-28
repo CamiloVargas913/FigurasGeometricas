@@ -12,15 +12,15 @@ package edu.unicundi.figurasgeometricas;
 public class Main {
 
     public static void main(String[] args) {
-        /*VistaFiguras figuras = new VistaFiguras();
-         figuras.setVisible(true);*/
+        VistaFiguras figuras = new VistaFiguras();
+        figuras.setVisible(true);
 
         /*Cuadrado cuadrado = new Cuadrado("0,-1", "-1,0", "0,1", "1,0");
         cuadrado.separarCoordenadas();
         cuadrado.hallarArea();
         cuadrado.hallarPerimetro();
         cuadrado.imprimirInfo();
-        
+
         Rectangulo rectangulo = new Rectangulo("-1,3", "2,3", "2,1", "-1,3");
         rectangulo.separarCoordenadas();
         rectangulo.hallarArea();

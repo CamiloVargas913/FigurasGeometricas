@@ -5,10 +5,9 @@
  */
 package edu.unicundi.figurasgeometricas;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics;
-import javax.swing.JPanel;
 
 /**
  *
@@ -21,19 +20,19 @@ public class VistaFiguras extends javax.swing.JFrame {
      */
     public VistaFiguras() {
         initComponents();
-        this.grafica.add(jpanel);
+
         this.getContentPane().setBackground(Color.WHITE);
-        this.setLocationRelativeTo(null);       
+        this.setLocationRelativeTo(null);
+
+        VistaGrafico graf = new VistaGrafico();
+        graf.setSize(500, 500);
+        graf.setLocation(0, 0);
+        grafico.removeAll();
+        grafico.add(graf, BorderLayout.CENTER);
+        grafico.revalidate();
+        grafico.repaint();
 
     }
-    JPanel jpanel = new JPanel() {
-            public void paint(Graphics g) {
-                super.paint(g);
-                g.drawLine(50, 150, 390, 150);
-                g.drawLine(150, 50, 150, 350);
-            }
-        };
-       
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,434 +45,40 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         figuras = new javax.swing.JComboBox<>();
-        cuadrado = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        coor1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        coor2 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        coor3 = new javax.swing.JTextField();
-        coor4 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        rectangulo = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        coor5 = new javax.swing.JTextField();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        coor6 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        coor7 = new javax.swing.JTextField();
-        coor8 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        triangulo = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        coor9 = new javax.swing.JTextField();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        coor10 = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        coor11 = new javax.swing.JTextField();
-        grafica = new javax.swing.JPanel();
+        grafico = new javax.swing.JPanel();
+        formulario = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Seleccione una figura:");
 
-        figuras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuadrado", "Rectangulo", "Trinagulo" }));
+        figuras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cuadrado", "Rectangulo", "Triangulo" }));
         figuras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 figurasActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Ingrese las coordenadas del cuadrado:");
-
-        coor1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor1ActionPerformed(evt);
-            }
-        });
-
-        jToggleButton1.setText("calcular");
-        jToggleButton1.setActionCommand("Calcular");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Su area es:");
-
-        jLabel4.setText("Su perimetro es:");
-
-        jLabel5.setText("-");
-
-        jLabel6.setText("-");
-
-        jLabel18.setText("Coordenada #1");
-
-        jLabel19.setText("Coordenada #2");
-
-        coor2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor2ActionPerformed(evt);
-            }
-        });
-
-        jLabel20.setText("Coordenada #3");
-
-        coor3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor3ActionPerformed(evt);
-            }
-        });
-
-        coor4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor4ActionPerformed(evt);
-            }
-        });
-
-        jLabel21.setText("Coordenada #4");
-
-        javax.swing.GroupLayout cuadradoLayout = new javax.swing.GroupLayout(cuadrado);
-        cuadrado.setLayout(cuadradoLayout);
-        cuadradoLayout.setHorizontalGroup(
-            cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cuadradoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6))
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel5))
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29)
-                        .addComponent(jToggleButton1))
-                    .addComponent(jLabel2))
-                .addContainerGap(302, Short.MAX_VALUE))
+        javax.swing.GroupLayout graficoLayout = new javax.swing.GroupLayout(grafico);
+        grafico.setLayout(graficoLayout);
+        graficoLayout.setHorizontalGroup(
+            graficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        cuadradoLayout.setVerticalGroup(
-            cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cuadradoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18)
-                            .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19)
-                            .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21)))
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jToggleButton1)))
-                .addGap(42, 42, 42)
-                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        graficoLayout.setVerticalGroup(
+            graficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 489, Short.MAX_VALUE)
         );
 
-        jLabel5.getAccessibleContext().setAccessibleName("area");
-        jLabel6.getAccessibleContext().setAccessibleName("perimetro");
-
-        jLabel7.setText("Ingrese las coordenadas del rectangulo:");
-
-        coor5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor5ActionPerformed(evt);
-            }
-        });
-
-        jToggleButton2.setText("calcular");
-        jToggleButton2.setActionCommand("Calcular");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Su area es:");
-
-        jLabel9.setText("Su perimetro es:");
-
-        jLabel10.setText("-");
-
-        jLabel11.setText("-");
-
-        jLabel22.setText("Coordenada #1");
-
-        jLabel23.setText("Coordenada #2");
-
-        coor6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor6ActionPerformed(evt);
-            }
-        });
-
-        jLabel24.setText("Coordenada #3");
-
-        coor7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor7ActionPerformed(evt);
-            }
-        });
-
-        coor8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor8ActionPerformed(evt);
-            }
-        });
-
-        jLabel25.setText("Coordenada #4");
-
-        javax.swing.GroupLayout rectanguloLayout = new javax.swing.GroupLayout(rectangulo);
-        rectangulo.setLayout(rectanguloLayout);
-        rectanguloLayout.setHorizontalGroup(
-            rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rectanguloLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rectanguloLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel11))
-                    .addGroup(rectanguloLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel10))
-                    .addGroup(rectanguloLayout.createSequentialGroup()
-                        .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(rectanguloLayout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(rectanguloLayout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(rectanguloLayout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(rectanguloLayout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29)
-                        .addComponent(jToggleButton2))
-                    .addComponent(jLabel7))
-                .addContainerGap(289, Short.MAX_VALUE))
+        javax.swing.GroupLayout formularioLayout = new javax.swing.GroupLayout(formulario);
+        formulario.setLayout(formularioLayout);
+        formularioLayout.setHorizontalGroup(
+            formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        rectanguloLayout.setVerticalGroup(
-            rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rectanguloLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel7)
-                .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rectanguloLayout.createSequentialGroup()
-                        .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(coor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel22)
-                            .addComponent(coor7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(coor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel23)
-                            .addComponent(coor8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25)))
-                    .addGroup(rectanguloLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jToggleButton2)))
-                .addGap(42, 42, 42)
-                .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(rectanguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel11))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLabel12.setText("Ingrese las coordenadas del triangulo:");
-
-        coor9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor9ActionPerformed(evt);
-            }
-        });
-
-        jToggleButton3.setText("calcular");
-        jToggleButton3.setActionCommand("Calcular");
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setText("Su area es:");
-
-        jLabel14.setText("Su perimetro es:");
-
-        jLabel15.setText("-");
-
-        jLabel16.setText("-");
-
-        jLabel26.setText("Coordenada #1");
-
-        jLabel27.setText("Coordenada #2");
-
-        coor10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor10ActionPerformed(evt);
-            }
-        });
-
-        jLabel28.setText("Coordenada #3");
-
-        coor11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coor11ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout trianguloLayout = new javax.swing.GroupLayout(triangulo);
-        triangulo.setLayout(trianguloLayout);
-        trianguloLayout.setHorizontalGroup(
-            trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(trianguloLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(trianguloLayout.createSequentialGroup()
-                        .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(trianguloLayout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(trianguloLayout.createSequentialGroup()
-                                .addComponent(jLabel26)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(trianguloLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel28)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(trianguloLayout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(jToggleButton3))))
-                    .addComponent(jLabel12)
-                    .addGroup(trianguloLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel16))
-                    .addGroup(trianguloLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel15)))
-                .addContainerGap(387, Short.MAX_VALUE))
-        );
-        trianguloLayout.setVerticalGroup(
-            trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(trianguloLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(coor9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26)
-                    .addComponent(coor11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(coor10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27)
-                    .addComponent(jToggleButton3))
-                .addGap(27, 27, 27)
-                .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(trianguloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel16))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        grafica.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                graficaAncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-
-        javax.swing.GroupLayout graficaLayout = new javax.swing.GroupLayout(grafica);
-        grafica.setLayout(graficaLayout);
-        graficaLayout.setHorizontalGroup(
-            graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 706, Short.MAX_VALUE)
-        );
-        graficaLayout.setVerticalGroup(
-            graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+        formularioLayout.setVerticalGroup(
+            formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 181, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -481,27 +86,20 @@ public class VistaFiguras extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(cuadrado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
-                    .addComponent(rectangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(7, 7, 7)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
-                    .addComponent(triangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(7, 7, 7)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 154, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(formulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,23 +109,10 @@ public class VistaFiguras extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(figuras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(370, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(56, 56, 56)
-                    .addComponent(rectangulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(363, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(66, 66, 66)
-                    .addComponent(triangulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(362, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(236, Short.MAX_VALUE)
-                    .addComponent(grafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         figuras.getAccessibleContext().setAccessibleName("figuras");
@@ -535,87 +120,43 @@ public class VistaFiguras extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void coor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor1ActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
     private void figurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_figurasActionPerformed
 
         switch (figuras.getSelectedIndex()) {
             case 0:
-                cuadrado.setVisible(true);
-                rectangulo.setVisible(false);
-                triangulo.setVisible(false);
+                formulario.removeAll();
+                formulario.repaint();
                 break;
             case 1:
-                cuadrado.setVisible(false);
-                rectangulo.setVisible(true);
-                triangulo.setVisible(false);
+                FormularioCudrado formC = new FormularioCudrado();
+                formC.setSize(500, 500);
+                formC.setLocation(0, 0);
+                formulario.removeAll();
+                formulario.add(formC, BorderLayout.CENTER);
+                formulario.revalidate();
+                formulario.repaint();
                 break;
             case 2:
-                cuadrado.setVisible(false);
-                rectangulo.setVisible(false);
-                triangulo.setVisible(true);
+                FormularioRectangulo formR = new FormularioRectangulo();
+                formR.setSize(500, 500);
+                formR.setLocation(0, 0);
+                formulario.removeAll();
+                formulario.add(formR, BorderLayout.CENTER);
+                formulario.revalidate();
+                formulario.repaint();
+                break;
+            case 3:
+                FormularioTriangulo formT = new FormularioTriangulo();
+                formT.setSize(500, 500);
+                formT.setLocation(0, 0);
+                formulario.removeAll();
+                formulario.add(formT, BorderLayout.CENTER);
+                formulario.revalidate();
+                formulario.repaint();
                 break;
         }
 
     }//GEN-LAST:event_figurasActionPerformed
-
-    private void coor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor2ActionPerformed
-
-    private void coor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor3ActionPerformed
-
-    private void coor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor4ActionPerformed
-
-    private void coor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor5ActionPerformed
-
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
-
-    private void coor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor6ActionPerformed
-
-    private void coor7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor7ActionPerformed
-
-    private void coor8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor8ActionPerformed
-
-    private void coor9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor9ActionPerformed
-
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
-
-    private void coor10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor10ActionPerformed
-
-    private void coor11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coor11ActionPerformed
-
-    private void graficaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_graficaAncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_graficaAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -650,54 +191,12 @@ public class VistaFiguras extends javax.swing.JFrame {
                 new VistaFiguras().setVisible(true);
             }
         });
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField coor1;
-    private javax.swing.JTextField coor10;
-    private javax.swing.JTextField coor11;
-    private javax.swing.JTextField coor2;
-    private javax.swing.JTextField coor3;
-    private javax.swing.JTextField coor4;
-    private javax.swing.JTextField coor5;
-    private javax.swing.JTextField coor6;
-    private javax.swing.JTextField coor7;
-    private javax.swing.JTextField coor8;
-    private javax.swing.JTextField coor9;
-    private javax.swing.JPanel cuadrado;
     private javax.swing.JComboBox<String> figuras;
-    private javax.swing.JPanel grafica;
+    private javax.swing.JPanel formulario;
+    private javax.swing.JPanel grafico;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JPanel rectangulo;
-    private javax.swing.JPanel triangulo;
     // End of variables declaration//GEN-END:variables
 }
