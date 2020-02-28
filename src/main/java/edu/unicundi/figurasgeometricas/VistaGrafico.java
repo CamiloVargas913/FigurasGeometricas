@@ -5,8 +5,10 @@
  */
 package edu.unicundi.figurasgeometricas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
 
 /**
  *
@@ -20,16 +22,55 @@ public class VistaGrafico extends javax.swing.JPanel {
     public VistaGrafico() {
         initComponents();
     }
-    
 
     public void paint(Graphics g) {
         super.paint(g);
         //linea en x
-        g.drawLine(10, 240, 500, 240);
-        g.drawLine(250, 10, 250, 480);
+        g.setColor(Color.red);
+        g.drawLine(10, 250, 490, 250);
+        // linea y
+        g.setColor(Color.green);
+        g.drawLine(250, 10, 250, 490);
+        g.setColor(Color.BLACK);
+        for (int i = 10; i < 500; i += 10) {
+
+            g.drawLine(245, i, 255, i);
+            g.drawLine(i, 245, i, 255);
+
+        }
+
+        int corde[][] = new int[4][4];
+        corde[0][0] = 2;
+        corde[0][1] = 2;
+        corde[0][2] = -1;
+        //corde[0][3] = -1;
         
-        
-        
+        corde[1][0] = 1;
+        corde[1][1] = -2;
+        corde[1][2] = -2;
+        //corde[1][3] = ;
+
+        for (int i = 0; i < corde.length; i++) {
+            if (corde[0][i] >= 0 ) {
+                corde[0][i]=((corde[0][i] * 10) + 250);              
+            }else{
+                corde[0][i]=(250+(corde[0][i] * 10));              
+            }
+            
+            if (corde[1][i] < 0 ) {                
+                corde[1][i]=(250+(Math.abs(corde[1][i] * 10)));
+            }else{               
+                corde[1][i]=(250-Math.abs(corde[1][i] * 10));
+            }
+        }
+
+        int coordx[] = {corde[0][0],corde[0][1],corde[0][2],corde[0][3]};
+        int coordy[] = {corde[1][0],corde[1][1],corde[1][2],corde[1][3]};
+
+        Polygon Polygon = new Polygon(coordx, coordy, 3);
+        g.setColor(Color.BLUE);
+        g.drawPolygon(Polygon);
+
     }
 
     /**

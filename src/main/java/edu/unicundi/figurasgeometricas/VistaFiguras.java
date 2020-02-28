@@ -7,7 +7,8 @@ package edu.unicundi.figurasgeometricas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Container;
+import java.awt.LayoutManager;
 
 /**
  *
@@ -23,6 +24,7 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         this.getContentPane().setBackground(Color.WHITE);
         this.setLocationRelativeTo(null);
+        
 
         VistaGrafico graf = new VistaGrafico();
         graf.setSize(500, 500);
@@ -67,7 +69,7 @@ public class VistaFiguras extends javax.swing.JFrame {
         );
         graficoLayout.setVerticalGroup(
             graficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 489, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout formularioLayout = new javax.swing.GroupLayout(formulario);
@@ -199,4 +201,8 @@ public class VistaFiguras extends javax.swing.JFrame {
     private javax.swing.JPanel grafico;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    private LayoutManager BoxLayout(Container contentPane, int LINE_AXIS) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
