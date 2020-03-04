@@ -24,8 +24,4 @@ public class Cuadrado extends Cuadrilateros {
         super(coorde1, coorde2, coorde3, coorde4);
 
     }
-
-
- 
-
 }

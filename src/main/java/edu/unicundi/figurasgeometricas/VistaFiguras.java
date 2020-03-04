@@ -9,6 +9,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.LayoutManager;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +22,9 @@ public class VistaFiguras extends javax.swing.JFrame {
     /**
      * Creates new form VistaFiguras
      */
+    List lista = new ArrayList();
+    Color colores = new Color(0, 0, 0);
+
     public VistaFiguras() {
         initComponents();
 
@@ -305,7 +311,6 @@ public class VistaFiguras extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
 
         // valida el color de la figura
-        Color colores = new Color(0, 0, 0);
         switch (color.getSelectedIndex()) {
             case 0:
                 colores = new Color(0, 0, 0);
@@ -328,56 +333,48 @@ public class VistaFiguras extends javax.swing.JFrame {
         }
 
         // valida el tipo de figura y calcula su area y su perimetro
-        VistaGrafico vistaGrafico = new VistaGrafico();
-        switch (figuras.getSelectedIndex()) {
-            case 0:
-                break;
-            case 1:
-                Cuadrado cuadrado = new Cuadrado(coor1.getText(), coor2.getText(), coor3.getText(), coor4.getText());
-                cuadrado.separarCoordenadas();
-                cuadrado.hallarArea();
-                cuadrado.hallarPerimetro();
-                cuadrado.imprimirInfo();
-                mensaje.setVisible(true);
-                mensaje.setText(cuadrado.getMensaje());
-                cuadrado.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4, colores);
+        if (lista.size() >= 2) {
+            JOptionPane.showMessageDialog(null, "No puede agregar mas de dos figuras");
+        } else {
+            switch (figuras.getSelectedIndex()) {
+                case 0:
+                    JOptionPane.showMessageDialog(null, "Seleccione una figura");
+                    break;
+                case 1:
+                    Cuadrado cuadrado = new Cuadrado(coor1.getText(), coor2.getText(), coor3.getText(), coor4.getText());
+                    cuadrado.setColores(this.colores);
+                    if (cuadrado.separarCoordenadas() == true && cuadrado.getLado1() == cuadrado.getLado2()) {
+                        lista.add(cuadrado);
+                        JOptionPane.showMessageDialog(null, "Figura agregada");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No puede agregar esta figura, no es un cuadrado");
+                    }
 
-                break;
-            case 2:
-                Rectangulo rectangulo = new Rectangulo(coor1.getText(), coor2.getText(), coor3.getText(), coor4.getText());
-                rectangulo.separarCoordenadas();
-                rectangulo.hallarArea();
-                rectangulo.hallarPerimetro();
-                rectangulo.imprimirInfo();
-                mensaje.setVisible(true);
-                mensaje.setText(rectangulo.getMensaje());
-                rectangulo.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(rectangulo.getCoordx(), rectangulo.getCoordy(), 4, colores);
+                    break;
+                case 2:
+                    Rectangulo rectangulo = new Rectangulo(coor1.getText(), coor2.getText(), coor3.getText(), coor4.getText());
+                    rectangulo.setColores(this.colores);
+                    if (rectangulo.separarCoordenadas() == true && rectangulo.getLado1() != rectangulo.getLado2()) {
+                        lista.add(rectangulo);
+                        JOptionPane.showMessageDialog(null, "Figura agregada");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No puede agregar esta figura, no es un rectangulo");
+                    }
 
-                break;
+                    break;
+                case 3:
+                    Triangulo triangulo = new Triangulo(coor1.getText(), coor2.getText(), coor3.getText());
+                    triangulo.setColores(this.colores);
+                    if (triangulo.separarCoordenadas() == true) {
+                        lista.add(triangulo);
+                        JOptionPane.showMessageDialog(null, "Figura agregada");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No puede agregar esta figura, no es un triangulo");
+                    }
 
-            case 3:
-                Triangulo triangulo = new Triangulo(coor1.getText(), coor2.getText(), coor3.getText());
-                triangulo.separarCoordenadas();
-                triangulo.validarTipoTriangulo();
-                triangulo.hallarPerimetro();
-                triangulo.hallarArea();
-                triangulo.imprimirInfo();
-                mensaje.setVisible(true);
-                mensaje.setText(triangulo.getMensaje());
-                triangulo.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(triangulo.getCoordx(), triangulo.getCoordy(), 3, colores);
-
-                break;
+                    break;
+            }
         }
-        vistaGrafico.setSize(500, 500);
-        vistaGrafico.setLocation(0, 0);
-        grafico.removeAll();
-        grafico.add(vistaGrafico, BorderLayout.CENTER);
-        grafico.revalidate();
-        grafico.repaint();
-        grafico.setVisible(true);
 
 
     }//GEN-LAST:event_jToggleButton1ActionPerformed
@@ -387,7 +384,68 @@ public class VistaFiguras extends javax.swing.JFrame {
     }//GEN-LAST:event_colorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        VistaGrafico vistaGrafico = new VistaGrafico();
+        vistaGrafico.setSize(500, 500);
+        vistaGrafico.setLocation(0, 0);
+        List<List> datos = new ArrayList<List>();
+        for (int i = 0; i < lista.size(); i++) {
+
+            if (lista.get(i) instanceof Cuadrado) {
+                ((Cuadrado) lista.get(i)).separarCoordenadas();
+                ((Cuadrado) lista.get(i)).hallarArea();
+                ((Cuadrado) lista.get(i)).hallarPerimetro();
+                ((Cuadrado) lista.get(i)).imprimirInfo();
+                mensaje.setVisible(true);
+                mensaje.setText(((Cuadrado) lista.get(i)).getMensaje());
+                ((Cuadrado) lista.get(i)).convertirCoordenadasPlano();
+                for (int j = 0; j < 2; j++) {
+                    datos.add(new ArrayList());
+                }
+                datos.get(i).add(((Cuadrado) lista.get(i)).getCoordx());
+                datos.get(i).add(((Cuadrado) lista.get(i)).getCoordy());
+                datos.get(i).add(4);
+                datos.get(i).add(((Cuadrado) lista.get(i)).getColores());
+                vistaGrafico.RecibirCoordenadas(datos);
+                grafico.add(vistaGrafico, BorderLayout.CENTER);
+            } else if (lista.get(i) instanceof Rectangulo) {
+                ((Rectangulo) lista.get(i)).separarCoordenadas();
+                ((Rectangulo) lista.get(i)).hallarArea();
+                ((Rectangulo) lista.get(i)).hallarPerimetro();
+                ((Rectangulo) lista.get(i)).imprimirInfo();
+                mensaje.setVisible(true);
+                mensaje.setText(((Rectangulo) lista.get(i)).getMensaje());
+                ((Rectangulo) lista.get(i)).convertirCoordenadasPlano();
+                for (int j = 0; j < 2; j++) {
+                    datos.add(new ArrayList());
+                }
+                datos.get(i).add(((Rectangulo) lista.get(i)).getCoordx());
+                datos.get(i).add(((Rectangulo) lista.get(i)).getCoordy());
+                datos.get(i).add(4);
+                datos.get(i).add(((Rectangulo) lista.get(i)).getColores());
+                vistaGrafico.RecibirCoordenadas(datos);
+                grafico.add(vistaGrafico, BorderLayout.CENTER);
+            } else {
+                ((Triangulo) lista.get(i)).separarCoordenadas();
+                ((Triangulo) lista.get(i)).hallarArea();
+                ((Triangulo) lista.get(i)).hallarPerimetro();
+                ((Triangulo) lista.get(i)).imprimirInfo();
+                mensaje.setVisible(true);
+                mensaje.setText(((Triangulo) lista.get(i)).getMensaje());
+                ((Triangulo) lista.get(i)).convertirCoordenadasPlano();
+                for (int j = 0; j < 2; j++) {
+                    datos.add(new ArrayList());
+                }
+                datos.get(i).add(((Triangulo) lista.get(i)).getCoordx());
+                datos.get(i).add(((Triangulo) lista.get(i)).getCoordy());
+                datos.get(i).add(3);
+                datos.get(i).add(((Triangulo) lista.get(i)).getColores());
+                vistaGrafico.RecibirCoordenadas(datos);
+                grafico.add(vistaGrafico, BorderLayout.CENTER);
+            }
+
+        }
+        grafico.setVisible(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

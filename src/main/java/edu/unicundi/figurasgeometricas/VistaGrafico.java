@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.util.List;
 
 /**
  *
@@ -19,21 +20,16 @@ public class VistaGrafico extends javax.swing.JPanel {
     /**
      * Creates new form VistaGrafico
      */
-    private int coordx[] = new int [4];
-    private int coordy[] = new int [4];
-    private int cantidadLados;
-    private Color colores;
+    private List<List> datos;
+
     public VistaGrafico() {
         initComponents();
     }
 
-    public void RecibirCoordenadas(int coordx[],int coordy[],int cantidadLados, Color colores ){
-        this.coordx = coordx;
-        this.coordy = coordy;
-        this.cantidadLados= cantidadLados;  
-        this.colores = colores;
-       
+    public void RecibirCoordenadas(List<List> datos) {
+        this.datos = datos;
     }
+
     public void paint(Graphics g) {
         super.paint(g);
         //linea en x
@@ -48,10 +44,13 @@ public class VistaGrafico extends javax.swing.JPanel {
             g.drawLine(245, i, 255, i);
             g.drawLine(i, 245, i, 255);
 
-        }        
-        Polygon Polygon = new Polygon(this.coordx, this.coordy, cantidadLados);
-        g.setColor(this.colores);
-        g.drawPolygon(Polygon);
+        }
+        for (int i = 0; i < 2; i++) {
+            System.out.println(datos.size());
+            Polygon Polygon = new Polygon((int[]) this.datos.get(i).get(0), (int[]) this.datos.get(i).get(1), (int) this.datos.get(i).get(2));
+            g.setColor((Color) this.datos.get(i).get(3));
+            g.drawPolygon(Polygon);
+        }
 
     }
 

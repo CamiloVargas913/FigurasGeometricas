@@ -5,6 +5,9 @@
  */
 package edu.unicundi.figurasgeometricas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author David Márquez Clase para manejar los metodos del triangulo y extiende
@@ -61,12 +64,10 @@ public class Triangulo extends FiguraGeometrica {
      */
     @Override
     public void imprimirInfo() {
-        if (separarCoordenadas() == true) {
-            setMensaje("Su Perimetro es:" + getPerimetro() + "Su Area es: " + getArea());
-        } else {
-            setMensaje("No es un triangulo");
-        }
+        //PENDIENTE
+        setMensaje(new ArrayList().);
     }
+    
 
     /**
      * Metodo para hallar el area del triangulo por la formula de Heron
@@ -107,9 +108,9 @@ public class Triangulo extends FiguraGeometrica {
 
     @Override
     public boolean validarCoordenadas() {
-      //validacion eje y
+        //validacion eje y
         int x1, x2, x3, y1, y2, y3;
-        int sumay=0 ,sumax=0;
+        int sumay = 0, sumax = 0;
         x1 = this.getCoordenadas()[0][0] - this.getCoordenadas()[0][2];
         x2 = this.getCoordenadas()[0][0] - this.getCoordenadas()[0][1];
         x3 = this.getCoordenadas()[0][1] - this.getCoordenadas()[0][2];

@@ -6,6 +6,8 @@
 package edu.unicundi.figurasgeometricas;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase para manejar los metodos de las figuras geometricas
@@ -56,7 +58,7 @@ public abstract class FiguraGeometrica implements IOperaciones {
      * Variable para almacenar el valor del mensaje de la informacion de la
      * figura
      */
-    private String mensaje;
+    private List mensaje = new  ArrayList();
 
     /**
      * Variable para almacenar el valor de las coordenadas en x y y de la figura
@@ -71,7 +73,8 @@ public abstract class FiguraGeometrica implements IOperaciones {
      */
     private int coordy[] = new int[4];
 
-    private Color colores = new Color(0, 0, 0);
+    private Color colores;
+    
 
     /**
      * Contructor de la clase
@@ -84,7 +87,7 @@ public abstract class FiguraGeometrica implements IOperaciones {
         this.coorde1 = coorde1;
         this.coorde2 = coorde2;
         this.coorde3 = coorde3;
-        this.mensaje = "";
+        
     }
 
     /**
@@ -141,23 +144,14 @@ public abstract class FiguraGeometrica implements IOperaciones {
         this.lado3 = lado3;
     }
 
-    /**
-     * Metodo para obtener el valor del mensaje
-     *
-     * @return mensaje
-     */
-    public String getMensaje() {
+    public List getMensaje() {
         return mensaje;
     }
 
-    /**
-     * Metodo para establecer el valor del mensaje
-     *
-     * @param mensaje Almacena el valor del mensaje
-     */
-    public void setMensaje(String mensaje) {
+    public void setMensaje(List mensaje) {
         this.mensaje = mensaje;
     }
+
 
     /**
      * Metodo para obtener las coordenadas en x y y de la figura
@@ -249,23 +243,15 @@ public abstract class FiguraGeometrica implements IOperaciones {
         this.perimetro = perimetro;
     }
 
-    /**
-     * Metodo para obtener el color de la figura
-     *
-     * @return mensajeArea
-     */
-    public String getColor() {
-        return color;
+    public Color getColores() {
+        return colores;
     }
 
-    /**
-     * Metodo para establecer el color de la figura
-     *
-     * @param color almacena el valor del color
-     */
-    public void setColor(String color) {
-        this.color = color;
+    public void setColores(Color colores) {
+        this.colores = colores;
     }
+
+    
 
     /**
      * Metodo para obtener la coordenada1 de la figura
