@@ -30,8 +30,7 @@ public class Rectangulo extends Cuadrilateros {
     @Override
     public void imprimirInfo() {
         if (separarCoordenadas() == true && getLado1() != getLado2()) {
-            setMensajePerimetro("Perimetro " + getPerimetro());
-            setMensajeArea("Area " + getArea());
+            setMensaje("Su Perimetro es:" + getPerimetro() + "Su Area es: " + getArea());
         } else {
             setMensaje("No es un rectangulo");
         }

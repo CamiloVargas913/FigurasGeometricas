@@ -25,18 +25,7 @@ public class Cuadrado extends Cuadrilateros {
 
     }
 
-    /**
-     * Metodo para imprimir la informacion de area y perimetro del cuadrado
-     */
-    @Override
-    public void imprimirInfo() {
-        if (separarCoordenadas() == true && getLado1() == getLado2()) {
-            setMensajePerimetro("Perimetro " + getPerimetro());
-            setMensajeArea("Area " + getArea());
-        }else{
-           setMensaje("No es un cuadrado");
-        }
 
-    }
+ 
 
 }

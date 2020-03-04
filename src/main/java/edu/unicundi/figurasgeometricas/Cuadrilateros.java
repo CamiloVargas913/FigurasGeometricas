@@ -42,6 +42,16 @@ public class Cuadrilateros extends FiguraGeometrica {
         this.coorde4 = coorde4;
     }
 
+    @Override
+    public void hallarArea() {
+        setArea(getLado1()* getLado2());
+    }
+
+    @Override
+    public void hallarPerimetro() {
+        setPerimetro(getLado1()*4);
+    }
+
     /**
      * Metodo para separar las coordenadas con el metodo split y almacenarlas en
      * el vector coordenadas
@@ -78,7 +88,6 @@ public class Cuadrilateros extends FiguraGeometrica {
      *
      * @return
      */
-    @Override
     public boolean validarCoordenadas() {
         //validacion eje y
         if (this.coordenadas[1][0] == this.coordenadas[1][1]) {
@@ -130,14 +139,14 @@ public class Cuadrilateros extends FiguraGeometrica {
         this.coordx[1] = this.coordenadas[0][1];
         this.coordx[2] = this.coordenadas[0][2];
         this.coordx[3] = this.coordenadas[0][3];
-        
+
         this.coordy[0] = this.coordenadas[1][0];
         this.coordy[1] = this.coordenadas[1][1];
         this.coordy[2] = this.coordenadas[1][2];
         this.coordy[3] = this.coordenadas[1][3];
-        
-         setCoordx(this.coordx);
-         setCoordy(this.coordy);
+
+        setCoordx(this.coordx);
+        setCoordy(this.coordy);
     }
 
     /**
@@ -175,4 +184,14 @@ public class Cuadrilateros extends FiguraGeometrica {
     public void setCoordenadas(int[][] coordenadas) {
         this.coordenadas = coordenadas;
     }
+
+    @Override
+    public void imprimirInfo() {
+        if (separarCoordenadas() == true && getLado1() == getLado2()) {
+            setMensaje("Su Perimetro es:" + getPerimetro() + "Su Area es: " + getArea());
+        }else{
+           setMensaje("No es un cuadrado");
+        }
+    }
+
 }

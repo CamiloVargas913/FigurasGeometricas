@@ -26,8 +26,8 @@ public class VistaFiguras extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         cuadrado.setVisible(false);
         grafico.setVisible(false);
-        mensajeArea.setVisible(false);
-        mensajePerimetro.setVisible(false);
+        mensaje.setVisible(false);
+        //mensajePerimetro.setVisible(false);
         mensaje.setVisible(false);
     }
 
@@ -43,7 +43,6 @@ public class VistaFiguras extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         figuras = new javax.swing.JComboBox<>();
         cuadrado = new javax.swing.JPanel();
-        mensajePerimetro = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         coor2 = new javax.swing.JTextField();
@@ -54,9 +53,9 @@ public class VistaFiguras extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         coor1 = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
-        mensajeArea = new javax.swing.JLabel();
         mensaje = new javax.swing.JLabel();
         grafico = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         color = new javax.swing.JComboBox<>();
 
@@ -70,8 +69,6 @@ public class VistaFiguras extends javax.swing.JFrame {
                 figurasActionPerformed(evt);
             }
         });
-
-        mensajePerimetro.setText("-");
 
         jLabel18.setText("Coordenada #1");
 
@@ -107,15 +104,13 @@ public class VistaFiguras extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton1.setText("calcular");
+        jToggleButton1.setText("Agregar");
         jToggleButton1.setActionCommand("Calcular");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-
-        mensajeArea.setText("-");
 
         mensaje.setText("-");
 
@@ -130,78 +125,79 @@ public class VistaFiguras extends javax.swing.JFrame {
             .addGap(0, 492, Short.MAX_VALUE)
         );
 
+        jButton1.setText("Pintar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout cuadradoLayout = new javax.swing.GroupLayout(cuadrado);
         cuadrado.setLayout(cuadradoLayout);
         cuadradoLayout.setHorizontalGroup(
             cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cuadradoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mensajeArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap())
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mensajePerimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(cuadradoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
                         .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel2))
                             .addGroup(cuadradoLayout.createSequentialGroup()
-                                .addComponent(lbCoor4)
-                                .addGap(18, 18, 18)
-                                .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29)
-                        .addComponent(jToggleButton1))
-                    .addComponent(grafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap()
+                                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(cuadradoLayout.createSequentialGroup()
+                                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                                .addComponent(jLabel19)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                                .addComponent(jLabel18)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                                .addComponent(jLabel20)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(cuadradoLayout.createSequentialGroup()
+                                                .addComponent(lbCoor4)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(62, 62, 62)
+                                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton1)
+                                            .addComponent(jToggleButton1)))
+                                    .addComponent(grafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(cuadradoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         cuadradoLayout.setVerticalGroup(
             cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cuadradoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18)
-                            .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19)
-                            .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbCoor4)))
-                    .addGroup(cuadradoLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jToggleButton1)))
-                .addGap(18, 18, 18)
-                .addComponent(mensajeArea)
+                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(coor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(coor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(jToggleButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mensajePerimetro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(coor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCoor4)
+                    .addComponent(jButton1))
+                .addGap(51, 51, 51)
                 .addComponent(mensaje)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -301,32 +297,33 @@ public class VistaFiguras extends javax.swing.JFrame {
     private void coor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coor1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_coor1ActionPerformed
-/**
- * Metodo para activar el evento del boton 
- * @param evt 
- */
+    /**
+     * Metodo para activar el evento del boton
+     *
+     * @param evt
+     */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        
+
         // valida el color de la figura
-        Color colores = new Color(0,0,0);
+        Color colores = new Color(0, 0, 0);
         switch (color.getSelectedIndex()) {
             case 0:
-                   colores = new Color(0,0,0);
+                colores = new Color(0, 0, 0);
                 break;
             case 1:
-                colores = new Color(255,0,0);
+                colores = new Color(255, 0, 0);
                 break;
             case 2:
-                colores = new Color(0,0,255);
+                colores = new Color(0, 0, 255);
                 break;
             case 3:
-                colores = new Color(255,255,0);
+                colores = new Color(255, 255, 0);
                 break;
             case 4:
-                colores = new Color(0,255,0);
+                colores = new Color(0, 255, 0);
                 break;
             case 5:
-                colores = new Color(0,0,0);
+                colores = new Color(0, 0, 0);
                 break;
         }
 
@@ -341,19 +338,10 @@ public class VistaFiguras extends javax.swing.JFrame {
                 cuadrado.hallarArea();
                 cuadrado.hallarPerimetro();
                 cuadrado.imprimirInfo();
-                mensajeArea.setVisible(true);
-                mensajePerimetro.setVisible(true);
                 mensaje.setVisible(true);
-                mensajeArea.setText(cuadrado.getMensajeArea());
-                mensajePerimetro.setText(cuadrado.getMensajePerimetro());
                 mensaje.setText(cuadrado.getMensaje());
                 cuadrado.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4,colores);
-
-                cuadrado.setCoorde1("0,0");
-                cuadrado.setCoorde2("0,0");
-                cuadrado.setCoorde3("0,0");
-                cuadrado.setCoorde4("0,0");
+                vistaGrafico.RecibirCoordenadas(cuadrado.getCoordx(), cuadrado.getCoordy(), 4, colores);
 
                 break;
             case 2:
@@ -362,19 +350,11 @@ public class VistaFiguras extends javax.swing.JFrame {
                 rectangulo.hallarArea();
                 rectangulo.hallarPerimetro();
                 rectangulo.imprimirInfo();
-                mensajeArea.setVisible(true);
-                mensajePerimetro.setVisible(true);
                 mensaje.setVisible(true);
-                mensajeArea.setText(rectangulo.getMensajeArea());
-                mensajePerimetro.setText(rectangulo.getMensajePerimetro());
                 mensaje.setText(rectangulo.getMensaje());
                 rectangulo.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(rectangulo.getCoordx(), rectangulo.getCoordy(), 4,colores);
+                vistaGrafico.RecibirCoordenadas(rectangulo.getCoordx(), rectangulo.getCoordy(), 4, colores);
 
-                rectangulo.setCoorde1("0,0");
-                rectangulo.setCoorde2("0,0");
-                rectangulo.setCoorde3("0,0");
-                rectangulo.setCoorde4("0,0");
                 break;
 
             case 3:
@@ -384,18 +364,10 @@ public class VistaFiguras extends javax.swing.JFrame {
                 triangulo.hallarPerimetro();
                 triangulo.hallarArea();
                 triangulo.imprimirInfo();
-                mensajeArea.setVisible(true);
-                mensajePerimetro.setVisible(true);
                 mensaje.setVisible(true);
-                mensajeArea.setText(triangulo.getMensajeArea());
-                mensajePerimetro.setText(triangulo.getMensajePerimetro());
                 mensaje.setText(triangulo.getMensaje());
                 triangulo.convertirCoordenadasPlano();
-                vistaGrafico.RecibirCoordenadas(triangulo.getCoordx(), triangulo.getCoordy(), 3,colores);
-
-                triangulo.setCoorde1("0,0");
-                triangulo.setCoorde2("0,0");
-                triangulo.setCoorde3("0,0");
+                vistaGrafico.RecibirCoordenadas(triangulo.getCoordx(), triangulo.getCoordy(), 3, colores);
 
                 break;
         }
@@ -414,12 +386,16 @@ public class VistaFiguras extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_colorActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     /**
-     * 
-     * @param args 
+     *
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -462,6 +438,7 @@ public class VistaFiguras extends javax.swing.JFrame {
     private javax.swing.JPanel cuadrado;
     private javax.swing.JComboBox<String> figuras;
     private javax.swing.JPanel grafico;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -471,8 +448,6 @@ public class VistaFiguras extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbCoor4;
     private javax.swing.JLabel mensaje;
-    private javax.swing.JLabel mensajeArea;
-    private javax.swing.JLabel mensajePerimetro;
     // End of variables declaration//GEN-END:variables
 
     private LayoutManager BoxLayout(Container contentPane, int LINE_AXIS) {
