@@ -25,18 +25,6 @@ public class Rectangulo extends Cuadrilateros {
     }
 
     /**
-     * Metodo para imprimir la informacion de area y el perimetro del rectangulo
-     */
-    @Override
-    public void imprimirInfo() {
-        if (separarCoordenadas() == true && getLado1() != getLado2()) {
-            setMensaje("Su Perimetro es:" + getPerimetro() + "Su Area es: " + getArea());
-        } else {
-            setMensaje("No es un rectangulo");
-        }
-    }
-
-    /**
      * Metodo para hallar el perimetro del rectangulo
      */
     @Override

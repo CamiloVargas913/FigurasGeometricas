@@ -34,7 +34,10 @@ public class VistaFiguras extends javax.swing.JFrame {
         grafico.setVisible(false);
         mensaje.setVisible(false);
         //mensajePerimetro.setVisible(false);
-        mensaje.setVisible(false);
+        mensaje1.setVisible(false);
+        mensaje2.setVisible(false);
+        mensaje3.setVisible(false);
+
     }
 
     /**
@@ -60,6 +63,9 @@ public class VistaFiguras extends javax.swing.JFrame {
         coor1 = new javax.swing.JTextField();
         jToggleButton1 = new javax.swing.JToggleButton();
         mensaje = new javax.swing.JLabel();
+        mensaje1 = new javax.swing.JLabel();
+        mensaje2 = new javax.swing.JLabel();
+        mensaje3 = new javax.swing.JLabel();
         grafico = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -119,6 +125,12 @@ public class VistaFiguras extends javax.swing.JFrame {
         });
 
         mensaje.setText("-");
+
+        mensaje1.setText("-");
+
+        mensaje2.setText("-");
+
+        mensaje3.setText("-");
 
         javax.swing.GroupLayout graficoLayout = new javax.swing.GroupLayout(grafico);
         grafico.setLayout(graficoLayout);
@@ -180,7 +192,11 @@ public class VistaFiguras extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(cuadradoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mensaje1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mensaje2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mensaje3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         cuadradoLayout.setVerticalGroup(
@@ -201,9 +217,15 @@ public class VistaFiguras extends javax.swing.JFrame {
                     .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbCoor4)
                     .addComponent(jButton1))
-                .addGap(51, 51, 51)
-                .addComponent(mensaje)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mensaje2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(mensaje3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(grafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -395,8 +417,8 @@ public class VistaFiguras extends javax.swing.JFrame {
                 ((Cuadrado) lista.get(i)).hallarArea();
                 ((Cuadrado) lista.get(i)).hallarPerimetro();
                 ((Cuadrado) lista.get(i)).imprimirInfo();
-                mensaje.setVisible(true);
-                mensaje.setText(((Cuadrado) lista.get(i)).getMensaje());
+                mensaje1.setVisible(true);
+                mensaje1.setText("Cuadrado: "+((Cuadrado) lista.get(i)).getMensaje());
                 ((Cuadrado) lista.get(i)).convertirCoordenadasPlano();
                 for (int j = 0; j < 2; j++) {
                     datos.add(new ArrayList());
@@ -412,8 +434,8 @@ public class VistaFiguras extends javax.swing.JFrame {
                 ((Rectangulo) lista.get(i)).hallarArea();
                 ((Rectangulo) lista.get(i)).hallarPerimetro();
                 ((Rectangulo) lista.get(i)).imprimirInfo();
-                mensaje.setVisible(true);
-                mensaje.setText(((Rectangulo) lista.get(i)).getMensaje());
+                mensaje2.setVisible(true);
+                mensaje2.setText("Rectangulo: "+((Rectangulo) lista.get(i)).getMensaje());
                 ((Rectangulo) lista.get(i)).convertirCoordenadasPlano();
                 for (int j = 0; j < 2; j++) {
                     datos.add(new ArrayList());
@@ -426,11 +448,12 @@ public class VistaFiguras extends javax.swing.JFrame {
                 grafico.add(vistaGrafico, BorderLayout.CENTER);
             } else {
                 ((Triangulo) lista.get(i)).separarCoordenadas();
-                ((Triangulo) lista.get(i)).hallarArea();
-                ((Triangulo) lista.get(i)).hallarPerimetro();
+                 ((Triangulo) lista.get(i)).hallarPerimetro();
+                ((Triangulo) lista.get(i)).hallarArea();               
+                ((Triangulo) lista.get(i)).validarTipoTriangulo();
                 ((Triangulo) lista.get(i)).imprimirInfo();
-                mensaje.setVisible(true);
-                mensaje.setText(((Triangulo) lista.get(i)).getMensaje());
+                mensaje3.setVisible(true);
+                mensaje3.setText("Trinagulo: "+((Triangulo) lista.get(i)).getMensaje());
                 ((Triangulo) lista.get(i)).convertirCoordenadasPlano();
                 for (int j = 0; j < 2; j++) {
                     datos.add(new ArrayList());
@@ -506,6 +529,9 @@ public class VistaFiguras extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbCoor4;
     private javax.swing.JLabel mensaje;
+    private javax.swing.JLabel mensaje1;
+    private javax.swing.JLabel mensaje2;
+    private javax.swing.JLabel mensaje3;
     // End of variables declaration//GEN-END:variables
 
     private LayoutManager BoxLayout(Container contentPane, int LINE_AXIS) {

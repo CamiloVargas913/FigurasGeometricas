@@ -21,5 +21,4 @@ public interface IOperaciones {
 
     public void hallarPerimetro();
 
-    public void imprimirInfo();
 }

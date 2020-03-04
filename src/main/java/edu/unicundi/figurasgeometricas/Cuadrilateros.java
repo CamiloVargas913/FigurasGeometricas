@@ -185,13 +185,4 @@ public class Cuadrilateros extends FiguraGeometrica {
         this.coordenadas = coordenadas;
     }
 
-    @Override
-    public void imprimirInfo() {
-        if (separarCoordenadas() == true && getLado1() == getLado2()) {
-            setMensaje("Su Perimetro es:" + getPerimetro() + "Su Area es: " + getArea());
-        }else{
-           setMensaje("No es un cuadrado");
-        }
-    }
-
 }

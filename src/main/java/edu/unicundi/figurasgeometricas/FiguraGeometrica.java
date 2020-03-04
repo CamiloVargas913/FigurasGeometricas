@@ -38,10 +38,6 @@ public abstract class FiguraGeometrica implements IOperaciones {
 
     private double perimetro;
     /**
-     * Variable para almacenar el valor del color de la figura
-     */
-    private String color;
-    /**
      * Variable para almacenar el valor de la coordenada 1 de la figura
      */
     private String coorde1;
@@ -58,7 +54,7 @@ public abstract class FiguraGeometrica implements IOperaciones {
      * Variable para almacenar el valor del mensaje de la informacion de la
      * figura
      */
-    private List mensaje = new  ArrayList();
+    private String mensaje;
 
     /**
      * Variable para almacenar el valor de las coordenadas en x y y de la figura
@@ -73,7 +69,7 @@ public abstract class FiguraGeometrica implements IOperaciones {
      */
     private int coordy[] = new int[4];
 
-    private Color colores;
+    private Color colores ;
     
 
     /**
@@ -87,7 +83,15 @@ public abstract class FiguraGeometrica implements IOperaciones {
         this.coorde1 = coorde1;
         this.coorde2 = coorde2;
         this.coorde3 = coorde3;
+        this.colores = new Color(0, 0, 0);
         
+    }
+    
+     /**
+     * Metodo para imprimir la informacion de area y el perimetro del triangulo
+     */
+    public void imprimirInfo() {
+        mensaje = "Su Perimetro es: " + getPerimetro() + " Su Area es: " + getArea();
     }
 
     /**
@@ -144,11 +148,11 @@ public abstract class FiguraGeometrica implements IOperaciones {
         this.lado3 = lado3;
     }
 
-    public List getMensaje() {
+    public String getMensaje() {
         return mensaje;
     }
 
-    public void setMensaje(List mensaje) {
+    public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
 

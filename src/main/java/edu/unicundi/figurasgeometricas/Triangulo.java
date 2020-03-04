@@ -19,6 +19,7 @@ public class Triangulo extends FiguraGeometrica {
      * Variable para guardar el semiperimetro
      */
     private double semiperimetro;
+    private String tipo;
 
     /**
      * Constructor del metodo
@@ -39,16 +40,20 @@ public class Triangulo extends FiguraGeometrica {
 
         if (separarCoordenadas() == true) {
             if (getLado1() == getLado2() && getLado2() == getLado3() && getLado3() == getLado1()) {
-                setMensaje("Es equilatero");
+                this.tipo= "Es equilatero";
             } else if (getLado1() == getLado2() && getLado2() != getLado3()
                     || getLado1() == getLado3() && getLado3() != getLado2()
                     || getLado2() == getLado3() && getLado3() != getLado1()) {
-                setMensaje("Es isosceles");
+                this.tipo="Es isosceles";
             } else {
-                setMensaje("Es escaleno");
+                this.tipo="Es escaleno";
             }
         }
 
+    }
+    
+    public void imprimirInfo() {
+        setMensaje("Su Perimetro es: " + getPerimetro() + " Su Area es: " + getArea()+" Tipo:"+ this.tipo );
     }
 
     /**
@@ -59,14 +64,7 @@ public class Triangulo extends FiguraGeometrica {
         setPerimetro(getLado1() + getLado2() + getLado3());
     }
 
-    /**
-     * Metodo para imprimir la informacion de area y el perimetro del triangulo
-     */
-    @Override
-    public void imprimirInfo() {
-        //PENDIENTE
-        setMensaje(new ArrayList().);
-    }
+   
     
 
     /**
