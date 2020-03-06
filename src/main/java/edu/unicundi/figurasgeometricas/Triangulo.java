@@ -40,20 +40,24 @@ public class Triangulo extends FiguraGeometrica {
 
         if (separarCoordenadas() == true) {
             if (getLado1() == getLado2() && getLado2() == getLado3() && getLado3() == getLado1()) {
-                this.tipo= "Es equilatero";
+                this.tipo = "Es equilatero";
             } else if (getLado1() == getLado2() && getLado2() != getLado3()
                     || getLado1() == getLado3() && getLado3() != getLado2()
                     || getLado2() == getLado3() && getLado3() != getLado1()) {
-                this.tipo="Es isosceles";
+                this.tipo = "Es isosceles";
             } else {
-                this.tipo="Es escaleno";
+                this.tipo = "Es escaleno";
             }
         }
 
     }
-    
+
+    /**
+     * Metodo para imprimir la informacion del triangulo
+     */
+    @Override
     public void imprimirInfo() {
-        setMensaje("Su Perimetro es: " + getPerimetro() + " Su Area es: " + getArea()+" Tipo:"+ this.tipo );
+        setMensaje("Su Perimetro es: " + String.format("%.2f",getPerimetro()) + " Su Area es: " + String.format("%.2f",getArea()) + " Tipo: " + this.tipo);
     }
 
     /**
@@ -64,9 +68,6 @@ public class Triangulo extends FiguraGeometrica {
         setPerimetro(getLado1() + getLado2() + getLado3());
     }
 
-   
-    
-
     /**
      * Metodo para hallar el area del triangulo por la formula de Heron
      */
@@ -76,6 +77,10 @@ public class Triangulo extends FiguraGeometrica {
         setArea(Math.sqrt(this.semiperimetro * (this.semiperimetro - getLado1()) * (this.semiperimetro - getLado2()) * (this.semiperimetro - getLado3())));
     }
 
+    /**
+     * Metodo para convertir las coordenadas cartesianas y se ajusten al plano
+     * dibujado
+     */
     @Override
     public void convertirCoordenadasPlano() {
         for (int i = 0; i < getCoordenadas().length; i++) {
@@ -104,6 +109,11 @@ public class Triangulo extends FiguraGeometrica {
         //setCoordy(getCoordy());
     }
 
+    /**
+     * Metodo para validar las coordenadas cartesianas ingresadas
+     *
+     * @return boolean
+     */
     @Override
     public boolean validarCoordenadas() {
         //validacion eje y
@@ -130,6 +140,11 @@ public class Triangulo extends FiguraGeometrica {
         }
     }
 
+    /**
+     * Metodo para separar las coordenadas y guardarlas en un array
+     *
+     * @return boolean
+     */
     @Override
     public boolean separarCoordenadas() {
         if (getCoorde1().equals("") || getCoorde2().equals("") || getCoorde3().equals("")) {

@@ -12,24 +12,41 @@ import java.awt.Polygon;
 import java.util.List;
 
 /**
+ * Clase para controlar todos los eventos y acciones del jframe
  *
- * @author PROFESIONAL
+ * @author Camilo Vargas
  */
 public class VistaGrafico extends javax.swing.JPanel {
 
     /**
      * Creates new form VistaGrafico
      */
+    /**
+     * Lista para guardar los datos de las figuras
+     */
     private List<List> datos;
 
+    /**
+     * Contructor principal de la clase
+     */
     public VistaGrafico() {
         initComponents();
     }
 
+    /**
+     * Metodo para recibir las coordenadas de las figuras
+     *
+     * @param datos
+     */
     public void RecibirCoordenadas(List<List> datos) {
         this.datos = datos;
     }
 
+    /**
+     * Metodo para pintar el plano y la figura
+     *
+     * @param g
+     */
     public void paint(Graphics g) {
         super.paint(g);
         //linea en x
@@ -50,6 +67,7 @@ public class VistaGrafico extends javax.swing.JPanel {
             Polygon Polygon = new Polygon((int[]) this.datos.get(i).get(0), (int[]) this.datos.get(i).get(1), (int) this.datos.get(i).get(2));
             g.setColor((Color) this.datos.get(i).get(3));
             g.drawPolygon(Polygon);
+            
         }
 
     }

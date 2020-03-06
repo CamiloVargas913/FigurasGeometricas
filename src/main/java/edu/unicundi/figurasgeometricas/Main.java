@@ -6,11 +6,17 @@
 package edu.unicundi.figurasgeometricas;
 
 /**
+ * Clase main del programa
  *
- * @author PROFESIONAL
+ * @author Camilo vargas
  */
 public class Main {
 
+    /**
+     * contructor del main
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         VistaFiguras figuras = new VistaFiguras();
         figuras.setVisible(true);
@@ -33,6 +39,5 @@ public class Main {
 //        triangulo.hallarPerimetro();
 //        triangulo.hallarArea();
 //        triangulo.imprimirInfo();
-
     }
 }

@@ -6,8 +6,8 @@
 package edu.unicundi.figurasgeometricas;
 
 /**
- *
- * @author PROFESIONAL
+ * Interface para los metodos comunes del programa
+ * @author Camilo vargas
  */
 public interface IOperaciones {
 

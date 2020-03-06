@@ -14,17 +14,27 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
+ * Clase para controlar todos los eventos y acciones del jframe
  *
- * @author PROFESIONAL
+ * @author David Márquez
  */
 public class VistaFiguras extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaFiguras
      */
+    /**
+     * Variable para guardar los objetos
+     */
     List lista = new ArrayList();
+    /**
+     * Variable para guardar el color dde la figura
+     */
     Color colores = new Color(0, 0, 0);
 
+    /**
+     * Constructor principal de la clase
+     */
     public VistaFiguras() {
         initComponents();
 
@@ -50,7 +60,7 @@ public class VistaFiguras extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        figuras = new javax.swing.JComboBox<>();
+        figuras = new javax.swing.JComboBox<String>();
         cuadrado = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -68,14 +78,15 @@ public class VistaFiguras extends javax.swing.JFrame {
         mensaje3 = new javax.swing.JLabel();
         grafico = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        color = new javax.swing.JComboBox<>();
+        color = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Seleccione una figura:");
 
-        figuras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cuadrado", "Rectangulo", "Triangulo" }));
+        figuras.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Cuadrado", "Rectangulo", "Triangulo" }));
         figuras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 figurasActionPerformed(evt);
@@ -150,6 +161,13 @@ public class VistaFiguras extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Limpiar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout cuadradoLayout = new javax.swing.GroupLayout(cuadrado);
         cuadrado.setLayout(cuadradoLayout);
         cuadradoLayout.setHorizontalGroup(
@@ -185,9 +203,11 @@ public class VistaFiguras extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(coor4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(62, 62, 62)
-                                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton1)
-                                            .addComponent(jToggleButton1)))
+                                        .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                     .addComponent(grafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(cuadradoLayout.createSequentialGroup()
@@ -218,7 +238,9 @@ public class VistaFiguras extends javax.swing.JFrame {
                     .addComponent(lbCoor4)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cuadradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mensaje1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -232,7 +254,7 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         jLabel3.setText("Seleccione Color");
 
-        color.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Rojo", "Azul", "Amarillo", "Verde", "Negro" }));
+        color.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Rojo", "Azul", "Amarillo", "Verde", "Negro" }));
         color.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorActionPerformed(evt);
@@ -275,7 +297,11 @@ public class VistaFiguras extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Metodo para establecer las acciones al seleccionar el dropdown
+     *
+     * @param evt
+     */
     private void figurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_figurasActionPerformed
 
         switch (figuras.getSelectedIndex()) {
@@ -404,77 +430,95 @@ public class VistaFiguras extends javax.swing.JFrame {
     private void colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_colorActionPerformed
-
+    /**
+     * Metodo para establecer las acciones del boton
+     *
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         VistaGrafico vistaGrafico = new VistaGrafico();
         vistaGrafico.setSize(500, 500);
         vistaGrafico.setLocation(0, 0);
         List<List> datos = new ArrayList<List>();
-        for (int i = 0; i < lista.size(); i++) {
+        if (lista.size() == 2) {
+            for (int i = 0; i < lista.size(); i++) {
 
-            if (lista.get(i) instanceof Cuadrado) {
-                ((Cuadrado) lista.get(i)).separarCoordenadas();
-                ((Cuadrado) lista.get(i)).hallarArea();
-                ((Cuadrado) lista.get(i)).hallarPerimetro();
-                ((Cuadrado) lista.get(i)).imprimirInfo();
-                mensaje1.setVisible(true);
-                mensaje1.setText("Cuadrado: "+((Cuadrado) lista.get(i)).getMensaje());
-                ((Cuadrado) lista.get(i)).convertirCoordenadasPlano();
-                for (int j = 0; j < 2; j++) {
-                    datos.add(new ArrayList());
+                if (lista.get(i) instanceof Cuadrado) {
+                    ((Cuadrado) lista.get(i)).separarCoordenadas();
+                    ((Cuadrado) lista.get(i)).hallarArea();
+                    ((Cuadrado) lista.get(i)).hallarPerimetro();
+                    ((Cuadrado) lista.get(i)).imprimirInfo();
+                    mensaje1.setVisible(true);
+                    mensaje1.setText("Cuadrado: " + ((Cuadrado) lista.get(i)).getMensaje());
+                    ((Cuadrado) lista.get(i)).convertirCoordenadasPlano();
+                    for (int j = 0; j < 2; j++) {
+                        datos.add(new ArrayList());
+                    }
+                    datos.get(i).add(((Cuadrado) lista.get(i)).getCoordx());
+                    datos.get(i).add(((Cuadrado) lista.get(i)).getCoordy());
+                    datos.get(i).add(4);
+                    datos.get(i).add(((Cuadrado) lista.get(i)).getColores());
+                    vistaGrafico.RecibirCoordenadas(datos);
+                    grafico.add(vistaGrafico, BorderLayout.CENTER);
+                } else if (lista.get(i) instanceof Rectangulo) {
+                    ((Rectangulo) lista.get(i)).separarCoordenadas();
+                    ((Rectangulo) lista.get(i)).hallarArea();
+                    ((Rectangulo) lista.get(i)).hallarPerimetro();
+                    ((Rectangulo) lista.get(i)).imprimirInfo();
+                    mensaje2.setVisible(true);
+                    mensaje2.setText("Rectangulo: " + ((Rectangulo) lista.get(i)).getMensaje());
+                    ((Rectangulo) lista.get(i)).convertirCoordenadasPlano();
+                    for (int j = 0; j < 2; j++) {
+                        datos.add(new ArrayList());
+                    }
+                    datos.get(i).add(((Rectangulo) lista.get(i)).getCoordx());
+                    datos.get(i).add(((Rectangulo) lista.get(i)).getCoordy());
+                    datos.get(i).add(4);
+                    datos.get(i).add(((Rectangulo) lista.get(i)).getColores());
+                    vistaGrafico.RecibirCoordenadas(datos);
+                    grafico.add(vistaGrafico, BorderLayout.CENTER);
+                } else {
+                    ((Triangulo) lista.get(i)).separarCoordenadas();
+                    ((Triangulo) lista.get(i)).hallarPerimetro();
+                    ((Triangulo) lista.get(i)).hallarArea();
+                    ((Triangulo) lista.get(i)).validarTipoTriangulo();
+                    ((Triangulo) lista.get(i)).imprimirInfo();
+                    mensaje3.setVisible(true);
+                    mensaje3.setText("Trinagulo: " + ((Triangulo) lista.get(i)).getMensaje());
+                    ((Triangulo) lista.get(i)).convertirCoordenadasPlano();
+                    for (int j = 0; j < 2; j++) {
+                        datos.add(new ArrayList());
+                    }
+                    datos.get(i).add(((Triangulo) lista.get(i)).getCoordx());
+                    datos.get(i).add(((Triangulo) lista.get(i)).getCoordy());
+                    datos.get(i).add(3);
+                    datos.get(i).add(((Triangulo) lista.get(i)).getColores());
+                    vistaGrafico.RecibirCoordenadas(datos);
+                    grafico.add(vistaGrafico, BorderLayout.CENTER);
                 }
-                datos.get(i).add(((Cuadrado) lista.get(i)).getCoordx());
-                datos.get(i).add(((Cuadrado) lista.get(i)).getCoordy());
-                datos.get(i).add(4);
-                datos.get(i).add(((Cuadrado) lista.get(i)).getColores());
-                vistaGrafico.RecibirCoordenadas(datos);
-                grafico.add(vistaGrafico, BorderLayout.CENTER);
-            } else if (lista.get(i) instanceof Rectangulo) {
-                ((Rectangulo) lista.get(i)).separarCoordenadas();
-                ((Rectangulo) lista.get(i)).hallarArea();
-                ((Rectangulo) lista.get(i)).hallarPerimetro();
-                ((Rectangulo) lista.get(i)).imprimirInfo();
-                mensaje2.setVisible(true);
-                mensaje2.setText("Rectangulo: "+((Rectangulo) lista.get(i)).getMensaje());
-                ((Rectangulo) lista.get(i)).convertirCoordenadasPlano();
-                for (int j = 0; j < 2; j++) {
-                    datos.add(new ArrayList());
-                }
-                datos.get(i).add(((Rectangulo) lista.get(i)).getCoordx());
-                datos.get(i).add(((Rectangulo) lista.get(i)).getCoordy());
-                datos.get(i).add(4);
-                datos.get(i).add(((Rectangulo) lista.get(i)).getColores());
-                vistaGrafico.RecibirCoordenadas(datos);
-                grafico.add(vistaGrafico, BorderLayout.CENTER);
-            } else {
-                ((Triangulo) lista.get(i)).separarCoordenadas();
-                 ((Triangulo) lista.get(i)).hallarPerimetro();
-                ((Triangulo) lista.get(i)).hallarArea();               
-                ((Triangulo) lista.get(i)).validarTipoTriangulo();
-                ((Triangulo) lista.get(i)).imprimirInfo();
-                mensaje3.setVisible(true);
-                mensaje3.setText("Trinagulo: "+((Triangulo) lista.get(i)).getMensaje());
-                ((Triangulo) lista.get(i)).convertirCoordenadasPlano();
-                for (int j = 0; j < 2; j++) {
-                    datos.add(new ArrayList());
-                }
-                datos.get(i).add(((Triangulo) lista.get(i)).getCoordx());
-                datos.get(i).add(((Triangulo) lista.get(i)).getCoordy());
-                datos.get(i).add(3);
-                datos.get(i).add(((Triangulo) lista.get(i)).getColores());
-                vistaGrafico.RecibirCoordenadas(datos);
-                grafico.add(vistaGrafico, BorderLayout.CENTER);
+
             }
-
+            grafico.setVisible(true);
+            grafico.repaint();
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe agregar dos figuras");
         }
-        grafico.setVisible(true);
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
+    /**
+     * Metodo para activar el evento click del boton limpiar
+     *
+     * @param evt
+     */
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        lista.clear();
+        grafico.removeAll();
+        grafico.repaint();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
-     * @param args the command line arguments
-     */
-    /**
+     * Contructor del awt
      *
      * @param args
      */
@@ -520,6 +564,7 @@ public class VistaFiguras extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> figuras;
     private javax.swing.JPanel grafico;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;

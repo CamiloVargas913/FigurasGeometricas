@@ -42,14 +42,20 @@ public class Cuadrilateros extends FiguraGeometrica {
         this.coorde4 = coorde4;
     }
 
+    /**
+     * Metodo para hallar el area de un cuadrilatero
+     */
     @Override
     public void hallarArea() {
-        setArea(getLado1()* getLado2());
+        setArea(getLado1() * getLado2());
     }
 
+    /**
+     * Metodo para hallar el perimetro de un cuadrilatero (cuadrado)
+     */
     @Override
     public void hallarPerimetro() {
-        setPerimetro(getLado1()*4);
+        setPerimetro(getLado1() * 4);
     }
 
     /**
